@@ -8,11 +8,11 @@
       <jdbc-url>jdbc:h2:tcp://localhost/$PROJECT_DIR$/NaverUser</jdbc-url>
       <working-dir>$ProjectFileDir$</working-dir>
     </data-source>
-    <data-source source="LOCAL" name="Products" uuid="8ccbbaaa-0630-4193-824a-f8035f2dca08">
+    <data-source source="LOCAL" name="Payments" uuid="8ccbbaaa-0630-4193-824a-f8035f2dca08">
       <driver-ref>h2.unified</driver-ref>
       <synchronize>true</synchronize>
       <jdbc-driver>org.h2.Driver</jdbc-driver>
-      <jdbc-url>jdbc:h2:tcp://localhost/$PROJECT_DIR$/NaverProducts</jdbc-url>
+      <jdbc-url>jdbc:h2:tcp://localhost/$PROJECT_DIR$/NaverPayments</jdbc-url>
       <working-dir>$ProjectFileDir$</working-dir>
     </data-source>
   </component>
