@@ -1,0 +1,9 @@
+Manifest-Version: 1.0
+Created-By: IntelliJ IDEA
+Built-By: user
+Build-Jdk: 11.0.16
+Implementation-Title: naver_pay
+Implementation-Version: 0.0.1-SNAPSHOT
+Implementation-Vendor-Id: com.toyprojcet
+Main-Class: ${start-class}
+

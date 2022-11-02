@@ -2,14 +2,14 @@ package org.toyproject.DB;
 
 import java.sql.*;
 
-public class JDBCProductsMgr {
-    private JDBCProductsMgr() {}
+public class JDBCPaymentsMgr {
+    private JDBCPaymentsMgr() {}
     public static Connection getConnection() {
         Connection conn = null;
 
         try {
             DriverManager.registerDriver(new org.h2.Driver());
-            conn = DriverManager.getConnection("jdbc:h2:tcp://localhost/c:/Users/user/IdeaProjects/naver-pay-project/NaverProducts", "sa", "");
+            conn = DriverManager.getConnection("jdbc:h2:tcp://localhost/c:/Users/user/IdeaProjects/naver-pay-project/NaverPayments", "sa", "");
         } catch (SQLException e) {
             e.printStackTrace();
         }

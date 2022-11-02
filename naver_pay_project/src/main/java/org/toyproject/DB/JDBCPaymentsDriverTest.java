@@ -3,21 +3,21 @@ package org.toyproject.DB;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
-public class JDBCProductsDriverTest {
+public class JDBCPaymentsDriverTest {
     public static void main(String[] args) {
-        String driver = "org.h2.ProductsDriver";
-        String url = "jdbc:h2:tcp://localhost/c:/Users/user/IdeaProjects/naver-pay-project/NaverProducts";
+        String driver = "org.h2.PaymentsDriver";
+        String url = "jdbc:h2:tcp://localhost/c:/Users/user/IdeaProjects/naver-pay-project/NaverPayments";
         String user = "sa";
         String password = "";
 
         try {
             Class.forName(driver); // JDBC 드라이버 객체 생성
-            System.out.println("... JDBC Products Driver 로딩 성공!");
+            System.out.println("... JDBC Payments Driver 로딩 성공!");
 
             DriverManager.getConnection(url, user, password); // JDBC 드라이버를 통해 DB 연결
             System.out.println("... H2 DB 연결 성공!");
         } catch(ClassNotFoundException e) {
-            System.out.println("[ ClassNotFoundException ] JDBC Products Driver 로딩 실패!");
+            System.out.println("[ ClassNotFoundException ] JDBC Payments Driver 로딩 실패!");
         } catch(SQLException e) {
             System.out.println("[ SQLException ] H2 DB 연결 실패!");
         } catch(Exception e) {
