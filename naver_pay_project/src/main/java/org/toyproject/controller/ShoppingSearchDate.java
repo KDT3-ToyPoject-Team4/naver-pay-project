@@ -1,10 +1,13 @@
-package org.toyproject.controller.controller;
+package org.toyproject.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+/**
+ * 수정 필요...
+ */
 @Controller
 public class ShoppingSearchDate {
     @RequestMapping(value = "/shopping/getSearchDate", method = RequestMethod.GET)
