@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/naver-pay-project.iml" filepath="$PROJECT_DIR$/.idea/naver-pay-project.iml" />
       <module fileurl="file://$PROJECT_DIR$/naver_pay_project/naver_pay_project.iml" filepath="$PROJECT_DIR$/naver_pay_project/naver_pay_project.iml" />
     </modules>
   </component>
