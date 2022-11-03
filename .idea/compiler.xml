@@ -11,6 +11,7 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="naver_pay" target="11" />
       <module name="naver_pay_project" target="11" />
     </bytecodeTargetLevel>
   </component>
