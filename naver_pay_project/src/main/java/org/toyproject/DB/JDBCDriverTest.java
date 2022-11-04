@@ -3,7 +3,7 @@ package org.toyproject.DB;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
-public class JDBCUsersDriverTest {
+public class JDBCDriverTest {
     public static void main(String[] args) {
         String driver = "org.h2.UsersDriver";
         String url = "jdbc:h2:tcp://localhost/c:/Users/user/IdeaProjects/naver-pay-project/NaverUser";
