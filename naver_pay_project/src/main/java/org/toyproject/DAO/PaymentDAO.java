@@ -7,11 +7,13 @@ import java.sql.SQLException;
 import java.util.Date;
 import java.util.LinkedList;
 import java.util.List;
-import org.toyproject.DB.*;
-import org.toyproject.DTO.PaymentDTO;
-import org.toyproject.DTO.DetailedPaymentDTO;
 
-public class PaymentDAO {
+import org.toyproject.DTO.PaymentDTO;
+
+public class PaymentDAO{
+
+}
+/*public class PaymentDAO {
 
     private static PaymentDAO paymentDAO = null;
     private Connection conn=null;
@@ -105,4 +107,4 @@ public class PaymentDAO {
         return PaymentList;
     }
 
-}
+}*/

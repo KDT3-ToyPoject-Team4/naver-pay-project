@@ -2,7 +2,10 @@ package org.toyproject.DTO;
 
 import java.util.Date;
 
-public class PaymentDTO {
+public class PaymentDTO{
+
+}
+/*public class PaymentDTO {
 
     private Long paymentId;
     private String productName;
@@ -73,4 +76,4 @@ public class PaymentDTO {
                 ", URL='" + URL + '\'' +
                 '}';
     }
-}
+}*/
