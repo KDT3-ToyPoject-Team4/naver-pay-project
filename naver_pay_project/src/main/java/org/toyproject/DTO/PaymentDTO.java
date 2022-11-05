@@ -3,7 +3,55 @@ package org.toyproject.DTO;
 import java.util.Date;
 
 public class PaymentDTO{
+    private Long paymentId;
+    private String paymentMethod;
+    private Long userSerialNum;
+    private int usedPoint;
+    private int paymentMoney;
 
+    public PaymentDTO(Long paymentId, String paymentMethod, Long userSerialNum, int usedPoint, int paymentMoney) {
+        this.paymentId = paymentId;
+        this.paymentMethod = paymentMethod;
+        this.userSerialNum = userSerialNum;
+        this.usedPoint = usedPoint;
+        this.paymentMoney = paymentMoney;
+    }
+
+    public Long getPaymentId() {
+        return paymentId;
+    }
+
+    public String getPaymentMethod() {
+        return paymentMethod;
+    }
+
+    public void setPaymentMethod(String paymentMethod) {
+        this.paymentMethod = paymentMethod;
+    }
+
+    public Long getUserSerialNum() {
+        return userSerialNum;
+    }
+
+    public void setUserSerialNum(Long userSerialNum) {
+        this.userSerialNum = userSerialNum;
+    }
+
+    public int getUsedPoint() {
+        return usedPoint;
+    }
+
+    public void setUsedPoint(int usedPoint) {
+        this.usedPoint = usedPoint;
+    }
+
+    public int getPaymentMoney() {
+        return paymentMoney;
+    }
+
+    public void setPaymentMoney(int paymentMoney) {
+        this.paymentMoney = paymentMoney;
+    }
 }
 /*public class PaymentDTO {
 
