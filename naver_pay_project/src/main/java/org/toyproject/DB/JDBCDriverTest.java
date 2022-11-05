@@ -3,11 +3,11 @@ package org.toyproject.DB;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
-public class JDBCPaymentsDriverTest {
+public class JDBCDriverTest {
     public static void main(String[] args) {
-        String driver = "org.h2.PaymentsDriver";
-        String url = "jdbc:h2:tcp://localhost/c:/Users/user/IdeaProjects/naver-pay-project/NaverPayments";
-        String user = "sa";
+        String driver = "org.h2.Driver";
+        String url = "jdbc:h2:~/JDBC";
+        String user = "sa2";
         String password = "";
 
         try {
