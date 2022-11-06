@@ -6,6 +6,9 @@ import org.toyproject.Entity.OrderedProductHistoryEntity;
 
 public class OrderedProductHistoryService {
 
+
+
+
     /*Entity를 DTO에 그대로 넣는다. (추가로 작업할게 없다)*/
     public OrderedProductHistoryDTO orderedProductHistory (String userId){
         OrderedProductHistoryDAO theDAO=OrderedProductHistoryDAO.getInstance();
