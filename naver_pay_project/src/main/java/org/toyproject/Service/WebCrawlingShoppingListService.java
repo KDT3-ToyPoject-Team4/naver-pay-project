@@ -9,19 +9,27 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.toyproject.Entity.WebCrawlingShoppingListEntity;
 
 import java.awt.*;
 import java.awt.datatransfer.Clipboard;
 import java.awt.datatransfer.StringSelection;
 import java.awt.event.KeyEvent;
+import java.sql.Array;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
 
 public class WebCrawlingShoppingListService {
 
-    public static void main(String[] args) throws AWTException {
+    public static void main(String[] args) throws AWTException, ParseException {
         getShoppingListFromWeb("724thomas","chl63B61op09!");
     }
-    public static void getShoppingListFromWeb(String naverId, String naverPassword) throws AWTException  {
+    public static List<WebCrawlingShoppingListEntity> getShoppingListFromWeb(String naverId, String naverPassword) throws AWTException, ParseException {
+        List<WebCrawlingShoppingListEntity> WebCrawlingShoppingListEntities = new ArrayList<>();
+
         WebDriver driver = null;
         WebDriverManager.chromedriver().browserVersion("77.0.3865.40").setup();
         ChromeOptions options = new ChromeOptions();
@@ -55,10 +63,9 @@ public class WebCrawlingShoppingListService {
 
         /*임의 값*/
         String userAddress = "강남구 역삼동 비왕빌딩 10층";
-        String password = randomPassword();
+        String userPw = randomPassword();
         String userName = randomName();
         String userTel = randomTel();
-        Long businessNumber = randomBusinessNumber();
         String paymentMethod = randomPaymentMethod();
 
         /*주문내역 페이지 크롤링*/
@@ -77,8 +84,8 @@ public class WebCrawlingShoppingListService {
         String productName; //제품명
 
         Elements orderTotalMoneyAndDateList = doc.select("ul.info");
-        String orderTotalMoney; //총 제품가격
-        String orderDate; //주문 날짜
+        long orderTotalMoney; //총 제품가격
+        Date orderDate; //주문 날짜
 
         Elements sellerList = doc.select("span.seller");
         String companyName; //판매자
@@ -112,9 +119,12 @@ public class WebCrawlingShoppingListService {
 //        for (int i=0; i<4; i++){
 
             productName = realproductNames.get(i); //제품명
-            orderDate = realOrderDate.get(i); //주문 날짜
+            String tempDate=realOrderDate.get(i); //주문 날짜
+            SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
+            orderDate = formatter.parse(tempDate);
             companyName=realCompanyName.get(i); //판매자
             companyPhone=realCompanyPhone.get(i); //판매자 대표번호
+            long businessNumber = randomBusinessNumber(); //사업자 번호
 
             /*상세페이지 페이지 크롤링*/
 //            String productUrl=getRealUrl(urlLinks.get(i).attr("href"));
@@ -137,55 +147,65 @@ public class WebCrawlingShoppingListService {
             }
 
             elements = doc.select("span.p_color_green");
-            String supplyPoint = elements.text().split(" ")[1].replaceAll("[,원]",""); //supplyPoint
+            int supplyPoint = Integer.parseInt(elements.text().split(" ")[1].replaceAll("[,원]","")); //supplyPoint
 
             elements = doc.select("strong.pointcol");
             String orderId=elements.text(); //orderId
 
             elements = doc.select("td.money");
-            String orderQuantity = elements.text().split(" ")[1].replaceAll("[()개]",""); //orderQuantity
+            int orderQuantity =Integer.parseInt(elements.text().split(" ")[1].replaceAll("[()개]","")); //orderQuantity
 
             elements = doc.select("em.thm");
-            String orderMoney=elements.text().split(" ")[elements.text().split(" ").length-1];
-            String usedPoint;
+            long orderMoney=Long.parseLong(elements.text().split(" ")[elements.text().split(" ").length-1].replace(",",""));
+            int usedPoint;
             if (elements.text().split(" ")[elements.text().split(" ").length-2].equals(elements.text().split(" ")[elements.text().split(" ").length-1])){
-                usedPoint="0";
+                usedPoint=0;
             }else{
-                usedPoint=elements.text().split(" ")[elements.text().split(" ").length-2];
+                usedPoint=Integer.parseInt(elements.text().split(" ")[elements.text().split(" ").length-2].replace(",",""));
             }
-            orderTotalMoney=elements.text().split(" ")[elements.text().split(" ").length-3].replace(",","");
+            orderTotalMoney=Long.parseLong(elements.text().split(" ")[elements.text().split(" ").length-3].replace(",",""));
 
 
-            Long productPrice = Long.parseLong(orderTotalMoney)/ Long.parseLong(orderQuantity);
+            long productPrice = orderTotalMoney/ orderQuantity;
 
 
-            System.out.println("로그인아이디:"+userId);
-            System.out.println("비밀번호:"+password);
-            System.out.println("이름:"+userName);
-            System.out.println("연락처:"+userTel);
-            System.out.println("주소:"+userAddress);
-            System.out.println("포인트잔액:"+userPoint);
+//            System.out.println("로그인아이디:"+userId);
+//            System.out.println("비밀번호:"+userPw);
+//            System.out.println("이름:"+userName);
+//            System.out.println("연락처:"+userTel);
+//            System.out.println("주소:"+userAddress);
+//            System.out.println("포인트잔액:"+userPoint);
+//
+//            System.out.println("회사명:"+companyName);
+//            System.out.println("회사번호:"+companyPhone);
+//            System.out.println("회사URL:"+companyStore);
+//            System.out.println("사업자번호:"+businessNumber);
+//
+//            System.out.println("제품명:"+productName);
+//            System.out.println("제공포인트:"+supplyPoint);
+//            System.out.println("제품가격:"+productPrice);
+//
+//            System.out.println("결제방법:"+paymentMethod);
+//
+//            System.out.println("주문번호:"+orderId);
+//            System.out.println("주문 날짜:"+orderDate);
+//            System.out.println("주문수량:"+orderQuantity);
+//            System.out.println("사용포인트:"+usedPoint);
+//            System.out.println("결제금액:"+orderMoney);
+//            System.out.println("총 결제금액:"+orderTotalMoney);
+//            System.out.println("------------------------------------------------");
 
-            System.out.println("회사명:"+companyName);
-            System.out.println("회사번호:"+companyPhone);
-            System.out.println("회사URL:"+companyStore);
-            System.out.println("사업자번호:"+businessNumber);
-
-            System.out.println("제품명:"+productName);
-            System.out.println("제공포인트:"+supplyPoint);
-            System.out.println("제품가격:"+productPrice);
-
-            System.out.println("결제방법:"+paymentMethod);
-
-            System.out.println("주문번호:"+orderId);
-            System.out.println("주문 날짜:"+orderDate);
-            System.out.println("주문수량:"+orderQuantity);
-            System.out.println("사용포인트:"+usedPoint);
-            System.out.println("결제금액:"+orderMoney);
-            System.out.println("총 결제금액:"+orderTotalMoney);
-            System.out.println("------------------------------------------------");
+            WebCrawlingShoppingListEntity temp = new WebCrawlingShoppingListEntity(
+                    userId,userPw,userName,userTel,userAddress,userPoint,
+                    companyName,companyPhone,companyStore,businessNumber,
+                    productName,productPrice,supplyPoint,
+                    paymentMethod,
+                    orderId,orderDate,orderQuantity,usedPoint,orderMoney,orderTotalMoney
+            );
+            WebCrawlingShoppingListEntities.add(temp);
         }
         driver.quit();
+        return WebCrawlingShoppingListEntities;
     }
 
     public static void copyAndPaste(String str) throws AWTException {
