@@ -9,10 +9,34 @@
 <html>
 <head>
     <title>Shopping</title>
+    <link rel="stylesheet" href="../../resources/css/Shopping.css">
 </head>
 <body>
     <h1>주문 목록 화면 입니다.</h1>
     ${shoppingList}
-    <button type="button" onclick="location.href='getShoppingDetailList'">주문 결과 상세 페이지로 이동하기</button>
+    <div class="container">
+        <div class="section-1">
+            <p>사용자 이름 : ${userName}</p>
+            <p>사용자 포인트 : ${userPoint}</p>
+        </div>
+        <div class="section-2">
+            <div class="cont-1">
+                <p>날짜를 입력 해주세요.</p>
+                <form>
+                    <input type="text" name="searchDate">
+                    <button type="button" onclick="location.href='getSearchDate'">검색</button>
+                </form>
+            </div>
+            <div class="cont-2">
+                <p>날짜 : ${date}</p>
+                <p>상품명 : ${produectName}</p>
+                <p>상품 가격 : ${produectPrice}</p>
+                <p>결제 날짜 : ${orderDate}</p>
+                <p>회사 이름 : ${companyName}</p>
+                <p>회사 전화 번호 : ${companyTel}</p>
+                <p>해당 주문 결과 상세 페이지로 이동하기 : <button type="button" onclick="location.href='getShoppingDetailList'">이동</button></p>
+            </div>
+        </div>
+    </div>
 </body>
 </html>
