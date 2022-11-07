@@ -87,5 +87,7 @@
     <orderEntry type="library" scope="PROVIDED" name="Maven: org.projectlombok:lombok:1.18.24" level="project" />
     <orderEntry type="library" name="Maven: com.servlets:cos:09May2002" level="project" />
     <orderEntry type="library" name="Maven: org.json:json:20220924" level="project" />
+    <orderEntry type="library" name="jsoup-1.15.3" level="project" />
+    <orderEntry type="library" name="io.github.bonigarcia.webdrivermanager" level="project" />
   </component>
 </module>
