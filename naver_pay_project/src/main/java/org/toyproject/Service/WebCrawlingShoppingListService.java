@@ -169,38 +169,38 @@ public class WebCrawlingShoppingListService {
             long productPrice = orderTotalMoney/ orderQuantity;
 
 
-//            System.out.println("로그인아이디:"+userId);
-//            System.out.println("비밀번호:"+userPw);
-//            System.out.println("이름:"+userName);
-//            System.out.println("연락처:"+userTel);
-//            System.out.println("주소:"+userAddress);
-//            System.out.println("포인트잔액:"+userPoint);
-//
-//            System.out.println("회사명:"+companyName);
-//            System.out.println("회사번호:"+companyPhone);
-//            System.out.println("회사URL:"+companyStore);
-//            System.out.println("사업자번호:"+businessNumber);
-//
-//            System.out.println("제품명:"+productName);
-//            System.out.println("제공포인트:"+supplyPoint);
-//            System.out.println("제품가격:"+productPrice);
-//
-//            System.out.println("결제방법:"+paymentMethod);
-//
-//            System.out.println("주문번호:"+orderId);
-//            System.out.println("주문 날짜:"+orderDate);
-//            System.out.println("주문수량:"+orderQuantity);
-//            System.out.println("사용포인트:"+usedPoint);
-//            System.out.println("결제금액:"+orderMoney);
-//            System.out.println("총 결제금액:"+orderTotalMoney);
-//            System.out.println("------------------------------------------------");
+            System.out.println("로그인아이디:"+userId);
+            System.out.println("비밀번호:"+userPw);
+            System.out.println("이름:"+userName);
+            System.out.println("연락처:"+userTel);
+            System.out.println("주소:"+userAddress);
+            System.out.println("포인트잔액:"+userPoint);
+
+            System.out.println("회사명:"+companyName);
+            System.out.println("회사번호:"+companyPhone);
+            System.out.println("회사URL:"+companyStore);
+            System.out.println("사업자번호:"+businessNumber);
+
+            System.out.println("제품명:"+productName);
+            System.out.println("제공포인트:"+supplyPoint);
+            System.out.println("제품가격:"+productPrice);
+
+            System.out.println("결제방법:"+paymentMethod);
+
+            System.out.println("주문번호:"+orderId);
+            System.out.println("주문 날짜:"+orderDate);
+            System.out.println("주문수량:"+orderQuantity);
+            System.out.println("사용포인트:"+usedPoint);
+            System.out.println("결제금액:"+orderMoney);
+            System.out.println("총 결제금액:"+orderTotalMoney);
+            System.out.println("------------------------------------------------");
 
             WebCrawlingShoppingListEntity temp = new WebCrawlingShoppingListEntity(
                     userId,userPw,userName,userTel,userAddress,userPoint,
                     companyName,companyPhone,companyStore,businessNumber,
                     productName,productPrice,supplyPoint,
                     paymentMethod,
-                    orderId,orderDate,orderQuantity,usedPoint,orderMoney,orderTotalMoney
+                    orderId,orderDate,orderQuantity,usedPoint,orderTotalMoney
             );
             WebCrawlingShoppingListEntities.add(temp);
         }

@@ -26,12 +26,11 @@ public class WebCrawlingShoppingListEntity {
     private Date orderDate;
     private int orderQuantity;
     private int usedPoint;
-    private long orderMoney;
     private long orderTotalMoney;
 
     public WebCrawlingShoppingListEntity(){}
 
-    public WebCrawlingShoppingListEntity(String userId, String userPw, String userName, String userTel, String userAddress, String userPoint, String companyName, String comPanyTel, String companyStore, long businessNumber, String productName, long productPrice, int supplyPoint, String paymentMethod, String orderId, Date orderDate, int orderQuantity, int usedPoint, long orderMoney, long orderTotalMoney) {
+    public WebCrawlingShoppingListEntity(String userId, String userPw, String userName, String userTel, String userAddress, String userPoint, String companyName, String comPanyTel, String companyStore, long businessNumber, String productName, long productPrice, int supplyPoint, String paymentMethod, String orderId, Date orderDate, int orderQuantity, int usedPoint, long orderTotalMoney) {
         this.userId = userId;
         this.userPw = userPw;
         this.userName = userName;
@@ -50,7 +49,6 @@ public class WebCrawlingShoppingListEntity {
         this.orderDate = orderDate;
         this.orderQuantity = orderQuantity;
         this.usedPoint = usedPoint;
-        this.orderMoney = orderMoney;
         this.orderTotalMoney = orderTotalMoney;
 
         System.out.println("WebCrawlingShoppingListEntity{" +
@@ -72,7 +70,6 @@ public class WebCrawlingShoppingListEntity {
                 ", orderDate=" + orderDate +
                 ", orderQuantity=" + orderQuantity +
                 ", usedPoint=" + usedPoint +
-                ", orderMoney=" + orderMoney +
                 ", orderTotalMoney=" + orderTotalMoney +
                 '}');
 
@@ -99,7 +96,6 @@ public class WebCrawlingShoppingListEntity {
                 ", orderDate=" + orderDate +
                 ", orderQuantity=" + orderQuantity +
                 ", usedPoint=" + usedPoint +
-                ", orderMoney=" + orderMoney +
                 ", orderTotalMoney=" + orderTotalMoney +
                 '}';
     }
