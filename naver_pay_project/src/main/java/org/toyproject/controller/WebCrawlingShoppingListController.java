@@ -18,11 +18,11 @@ import static org.toyproject.Service.WebCrawlingShoppingListService.getShoppingL
 public class WebCrawlingShoppingListController {
 
 
-    @RequestMapping("getShoppingList.jsp")
+    @RequestMapping("/crawling/getShoppingList")
     public String naverLogin(@ModelAttribute WebCrawlingShoppingListDTO dto, Model model) throws ParseException, AWTException {
         List<WebCrawlingShoppingListEntity> theList = WebCrawlingShoppingListService.getShoppingListFromWeb(dto.getUserId(),dto.getUserPassword());
         dto.setEntitiesList(theList);
         model.addAttribute("dto",dto);
-        return "crawlingresult";
+        return "CrawlingResult";
     }
 }
