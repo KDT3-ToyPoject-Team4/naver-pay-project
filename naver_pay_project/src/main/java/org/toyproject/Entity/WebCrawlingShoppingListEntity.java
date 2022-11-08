@@ -3,6 +3,7 @@ package org.toyproject.Entity;
 import java.util.Date;
 
 public class WebCrawlingShoppingListEntity {
+    private static WebCrawlingShoppingListEntity webCrawlingShoppingListEntity = null;
     //User
     private String userId;
     private String userPw;
@@ -27,6 +28,14 @@ public class WebCrawlingShoppingListEntity {
     private int orderQuantity;
     private int usedPoint;
     private long orderTotalMoney;
+
+    public static WebCrawlingShoppingListEntity getInstance() {
+        if (webCrawlingShoppingListEntity == null) {
+            webCrawlingShoppingListEntity = new WebCrawlingShoppingListEntity();
+        }
+
+        return webCrawlingShoppingListEntity;
+    }
 
     public WebCrawlingShoppingListEntity(){}
 
@@ -74,6 +83,83 @@ public class WebCrawlingShoppingListEntity {
                 '}');
 
     }
+
+    public String getUserId() {
+        return userId;
+    }
+
+    public String getUserPw() {
+        return userPw;
+    }
+
+    public String getUserName() {
+        return userName;
+    }
+
+    public String getUserTel() {
+        return userTel;
+    }
+
+    public String getUserAddress() {
+        return userAddress;
+    }
+
+    public String getUserPoint() {
+        return userPoint;
+    }
+
+    public String getCompanyName() {
+        return companyName;
+    }
+
+    public String getComPanyTel() {
+        return comPanyTel;
+    }
+
+    public String getCompanyStore() {
+        return companyStore;
+    }
+
+    public long getBusinessNumber() {
+        return businessNumber;
+    }
+
+    public String getProductName() {
+        return productName;
+    }
+
+    public long getProductPrice() {
+        return productPrice;
+    }
+
+    public int getSupplyPoint() {
+        return supplyPoint;
+    }
+
+    public String getPaymentMethod() {
+        return paymentMethod;
+    }
+
+    public String getOrderId() {
+        return orderId;
+    }
+
+    public Date getOrderDate() {
+        return orderDate;
+    }
+
+    public int getOrderQuantity() {
+        return orderQuantity;
+    }
+
+    public int getUsedPoint() {
+        return usedPoint;
+    }
+
+    public long getOrderTotalMoney() {
+        return orderTotalMoney;
+    }
+
 
     @Override
     public String toString() {

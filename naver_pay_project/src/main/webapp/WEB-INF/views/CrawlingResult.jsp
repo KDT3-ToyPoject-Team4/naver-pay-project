@@ -6,7 +6,8 @@
 </head>
 <body>
 <h1>실제 네이버 주문목록입니다.</h1>
-
+${userId}
+${userPassword}
 </form>
 </body>
 </html>

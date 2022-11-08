@@ -6,7 +6,7 @@
 </head>
 <body>
 <h1>메인 화면 입니다.</h1>
-<form action="getShoppingList" method="post">
+<form action="crawlingResult" method="post">
 <input type="text" name="userId">
 <input type="password" name="userPassword">
 <input type="submit" name="네이버 로그인">
