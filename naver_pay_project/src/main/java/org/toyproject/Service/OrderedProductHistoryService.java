@@ -24,8 +24,8 @@ public class OrderedProductHistoryService {
 
     /*Entity를 DTO에 그대로 넣는다. (추가로 작업할게 없다)*/
     public List<OrderedProductHistoryDTO> orderedProductHistory (String userId){
-        OrderedProductHistoryDAO theDAO=OrderedProductHistoryDAO.getInstance();
-        OrderedProductHistoryDTO theDTO=OrderedProductHistoryDTO.getInstance();
+        OrderedProductHistoryDAO theDAO = OrderedProductHistoryDAO.getInstance();
+        OrderedProductHistoryDTO theDTO = OrderedProductHistoryDTO.getInstance();
         List<OrderedProductHistoryDTO> OrderedProductHistoryDTOs = new ArrayList<>();
 
         if(theDAO.getOrderedProductHistoryEntityWithUserId(userId)!=null){
