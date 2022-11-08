@@ -39,7 +39,8 @@ public class UserService implements IUserService {
         UserDTO userDTO = new UserDTO(userId, userPassword);
         if (userDTO == null) return null;
 
-        UserEntity user = userDAO.select(userDTO.getUserId());//왜 null이 될까ㅏ..
+
+        UserEntity user = userDAO.select(userDTO.getUserId(), userDTO.getUserPassword());//왜 null이 될까ㅏ..
         if (user == null || user.getUserPassword() == null) return null;
         if (user.getUserPassword().equals(userDTO.getUserPassword())) {
 

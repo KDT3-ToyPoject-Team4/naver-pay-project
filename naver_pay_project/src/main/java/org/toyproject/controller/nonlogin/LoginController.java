@@ -69,7 +69,7 @@ public class LoginController {
 
             model.addAttribute("userId", session.getAttribute("SESSION_ID"));
 
-            view = "LoginSucceed";
+            view = "loginsucceed";
             respStatus = Status.SUCCESS;
         }
 

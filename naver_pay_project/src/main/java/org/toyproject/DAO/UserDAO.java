@@ -194,24 +194,24 @@ public class UserDAO {
         return result;
     }
 
-    public UserEntity select(String userId) {
+    public UserEntity select(String userId, String userPassword) { //여기?
         UserEntity user = null;
         try {
             conn = connectionPoolMgr.getConnection();
             pstmt = conn.prepareStatement(USER_SELECT);
             pstmt.setString(1, userId);
+            pstmt.setString(2, userPassword);
 
             rs = pstmt.executeQuery();
 
             if (rs.next()) {
-                String mId = rs.getString("mId");
-                String mPw = rs.getString("mPw");
-                String mName = rs.getString("mName");
-                String mPoint = rs.getString("mPoint");
-                String mMoney = rs.getString("mMoney");
-                String mCardCompany = rs.getString("mCardCompany");
-                String mCardNumber = rs.getString("mCardNumber");
-                user = new UserEntity(mId, mPw, mName, mPoint, mMoney, mCardCompany, mCardNumber);
+                String uId = rs.getString("USER_ID");
+                String uPw = rs.getString("USER_PW");
+                String uName = rs.getString("USER_NAME");
+                String uPhoneNumber = rs.getString("USER_PH");
+                String uAddress = rs.getString("USER_ADDR");
+                String uPoint = rs.getString("USER_POINT");
+                user = new UserEntity(uId, uPw, uName, uPhoneNumber, uAddress, uPoint);
             }
 
         } catch (SQLException e){
@@ -219,7 +219,7 @@ public class UserDAO {
         }catch (Exception e){
             e.printStackTrace();
         }finally {
-            connectionPoolMgr.freeConnection(conn,pstmt);
+            connectionPoolMgr.freeConnection(conn,pstmt, rs);
         }
         return user;
     }
