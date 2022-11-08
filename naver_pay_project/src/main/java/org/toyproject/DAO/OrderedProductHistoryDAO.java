@@ -1,13 +1,15 @@
 package org.toyproject.DAO;
 
+import org.toyproject.DB.JDBCMgr;
+import org.toyproject.Entity.OrderedProductHistoryEntity;
+
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.Date;
-
-import org.toyproject.DB.*;
-import org.toyproject.Entity.OrderedProductHistoryEntity;
+import java.util.List;
 
 public class OrderedProductHistoryDAO {
 
@@ -38,7 +40,7 @@ public class OrderedProductHistoryDAO {
     //해당 기간사이 결제정보 가져오기
 
 
-    OrderedProductHistoryDAO(){}
+    public OrderedProductHistoryDAO(){}
     public static OrderedProductHistoryDAO getInstance(){
         if (orderedProductHistoryDAO ==null){
             orderedProductHistoryDAO =new OrderedProductHistoryDAO();
@@ -46,10 +48,11 @@ public class OrderedProductHistoryDAO {
         return orderedProductHistoryDAO;
     }
 
-    public OrderedProductHistoryEntity getOrderedProductHistoryEntityWithUserId(String userId){
+    public List<OrderedProductHistoryEntity> getOrderedProductHistoryEntityWithUserId(String userId){
+        List<OrderedProductHistoryEntity> OrderedProductHistoryEntities = new ArrayList<>();
 
         try{
-            conn=JDBCMgr.getConnection();
+            conn= JDBCMgr.getConnection();
             stmt=conn.prepareStatement(Payment_SELECT_ORDEREDPRODUCTHISTORY);
             stmt.setString(1, userId);
             rs=stmt.executeQuery();
@@ -73,7 +76,8 @@ public class OrderedProductHistoryDAO {
                 OrderedProductHistoryEntity theEntity = new OrderedProductHistoryEntity(
                                                             userId, userPoint, productName,productPrice,
                                                             companyName,company_tel,orderId,orderDate);
-                return theEntity;
+                OrderedProductHistoryEntities.add(theEntity);
+                return OrderedProductHistoryEntities;
             }
         }catch (SQLException e){
             e.printStackTrace();
