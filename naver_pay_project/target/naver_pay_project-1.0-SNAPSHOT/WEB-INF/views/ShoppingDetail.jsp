@@ -12,16 +12,32 @@
 </head>
 <body>
     <h1>주문 결과 상세 페이지 입니다.</h1>
-    <h2>결제정보 : ${paymentId}</h2>
-    <h2>제품이름 : ${productName}</h2>
-    <h2>제품금액 : ${productPrice}</h2>
-    <h2>제품수량 : ${productAmount}</h2>
-    <h2>결제방법 : ${paymentMethod}</h2>
-    <h2>결제날짜 : ${paymentDate}</h2>
-    <h2>판매자명 : ${sellerName}</h2>
-    <h2>판매자 대표 번호 : ${sellerPhone}</h2>
-    <h2>구매자 번호 : ${userSerialNumber}</h2>
-    <h2>적립된 포인트 : ${collectedPoints}</h2>
-    <h2>제품 상세페이지 : ${URL}</h2>
+    <div>
+        <button>주문 결과 삭제</button>
+    </div>
+    <div>
+        <div>
+            <p>주문 일자 : ${orderDate}</p>
+            <p>주문 번호 : ${orderId}</p>
+        </div>
+        <div>
+            <p>상품 금액 : ${productPirce}</p>
+            <p>상품 결제시 제공 포인트 : ${supplyPoint}</p>
+            <p>상품 판매 회사 : ${companyName}</p>
+            <p>상품 판매 회사 전화 번호 : ${companyTel}</p>
+            <p>상품 판매 회사 스토어 URL : ${companyStore}</p>
+        </div>
+        <div>
+            <p>사용자가 결제한 결제 수단 : ${paymentMethod}</p>
+            <p>사용자가 사용한 포인트 : ${usedPoint}</p>
+            <p>사용자가 지불한 금액 : ${orderMoney}</p>
+        </div>
+        <div>
+            <p>배송지 정보</p>
+            <p>사용자 이름 : ${userName}</p>
+            <p>사용자 주소 : ${userAddr}</p>
+            <p>사용자 연락처 : ${userPh}</p>
+        </div>
+    </div>
 </body>
 </html>

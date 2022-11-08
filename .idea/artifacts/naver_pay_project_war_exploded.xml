@@ -61,6 +61,7 @@
           <element id="library" level="project" name="Maven: commons-dbcp:commons-dbcp:1.4" />
           <element id="library" level="project" name="Maven: commons-pool:commons-pool:1.5.4" />
           <element id="library" level="project" name="Maven: com.zaxxer:HikariCP:5.0.1" />
+          <element id="library" level="project" name="Maven: com.h2database:h2:2.1.214" />
           <element id="library" level="project" name="Maven: org.springframework:spring-test:5.3.23" />
           <element id="library" level="project" name="Maven: com.servlets:cos:09May2002" />
           <element id="library" level="project" name="Maven: org.json:json:20220924" />
