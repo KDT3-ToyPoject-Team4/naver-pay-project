@@ -12,8 +12,6 @@ import java.awt.*;
 import java.text.ParseException;
 import java.util.List;
 
-import static org.toyproject.Service.WebCrawlingShoppingListService.getShoppingListFromWeb;
-
 @Controller
 public class WebCrawlingShoppingListController {
 
