@@ -99,11 +99,15 @@
 %>
 
 <!-- -->
-
+<header>
+    <jsp:include page="layout/header.jsp"/>
+</header>
 
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
          pageEncoding="EUC-KR"%>
+
 <html>
+
 <head>
     <title>로그인 화면</title>
 
@@ -142,18 +146,21 @@
 
         <table>
             <tr>
+                <div class="form__list">
                 <td bgcolor="PowderBlue">아이디</td>
                 <td><input type="text" id="userId" name="userId" maxlength="50"></td>
+                </div>
             </tr>
             <tr>
+                <div class="form__list">
                 <td bgcolor="PowderBlue">비밀번호</td>
                 <td><input type="password" id="userPassword" name="userPassword" maxlength="50"></td>
+                </div>
             </tr>
         </table>
         <br>
 
         <input type="submit" value="로그인"/>
-        <button type="button" onclick="location.href='signup'">회원가입</button>
 
     </form>
 
