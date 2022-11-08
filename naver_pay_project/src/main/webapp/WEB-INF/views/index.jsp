@@ -14,6 +14,6 @@
     <h1>메인 화면 입니다.</h1>
     <button type="button" onclick="location.href='login'">로그인</button>
     <button type="button" onclick="location.href='signup'">회원가입</button>
-    <button type="button" onclick="location.href='crawling'">크롤링</button>
+    <button type="button" onclick="location.href='loading'">크롤링</button>
   </body>
 </html>

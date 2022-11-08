@@ -18,8 +18,13 @@ public class WebCrawlingShoppingListController {
 
 
     @RequestMapping("/crawling")
-    public String crawlingLogin(){
+    public String loading(){
         return "CrawlingLogin";
+    }
+
+    @RequestMapping("/loading")
+    public String crawlingLogin(){
+        return "Loading";
     }
     @RequestMapping("/crawlingResult")
     public String naverLogin(@RequestParam String userId, String userPassword, Model model) throws ParseException, AWTException {
