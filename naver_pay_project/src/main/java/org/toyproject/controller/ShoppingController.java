@@ -12,8 +12,8 @@ import java.text.ParseException;
 public class ShoppingController {
     @RequestMapping(value = "/shopping/getShoppingList")
     public String Shopping(@ModelAttribute String userId, Model model) throws ParseException {
-        OrderedProductHistoryService theService = OrderedProductHistoryService.getInstance();
-        model.addAttribute("DtoList",theService.orderedProductHistory(userId));
+        OrderedProductHistoryService orderService = OrderedProductHistoryService.getInstance();
+        model.addAttribute("DtoList",orderService.orderedProductHistory(userId));
         return "Shopping";
     }
 }
