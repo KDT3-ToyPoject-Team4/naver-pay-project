@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
   User: user
@@ -16,8 +17,8 @@
     ${shoppingList}
     <div class="container">
         <div class="section-1">
-            <p>사용자 이름 : ${userName}</p>
-            <p>사용자 포인트 : ${userPoint}</p>
+            <p>사용자 이름 : ${DtoList.get(0).userId}</p>
+            <p>사용자 포인트 : ${DtoList.get(0).userPoint}</p>
         </div>
         <div class="section-2">
             <div class="cont-1">
@@ -29,13 +30,15 @@
                 </form>
             </div>
             <div class="cont-2">
-                <p>날짜 : ${date}</p>
-                <p>상품명 : ${produectName}</p>
-                <p>상품 가격 : ${produectPrice}</p>
-                <p>결제 날짜 : ${orderDate}</p>
-                <p>회사 이름 : ${companyName}</p>
-                <p>회사 전화 번호 : ${companyTel}</p>
-                <p>해당 주문 결과 상세 페이지로 이동하기 : <button type="button" onclick="location.href='getShoppingDetailList'">이동</button></p>
+                <c:forEach items="${DtoList}"  var="dto" >
+                    <p>제품명 : ${dto.productName}</p>
+                    <p>제품금액 : ${dto.productPrice}</p>
+                    <p>회사명 : ${dto.companyName}</p>
+                    <p>회사번호 : ${dto.company_tel}</p>
+                    <p>주문번호 : ${dto.orderId}</p>
+                    <p>주문날짜 : ${dto.orderDate}</p>
+                    <p>해당 주문 결과 상세 페이지로 이동하기 : <button type="button" onclick="location.href='getShoppingDetailList'">이동</button></p>
+                </c:forEach>
             </div>
         </div>
     </div>

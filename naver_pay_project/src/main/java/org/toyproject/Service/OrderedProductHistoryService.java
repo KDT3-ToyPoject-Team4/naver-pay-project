@@ -24,27 +24,27 @@ public class OrderedProductHistoryService {
 
     public List<OrderedProductHistoryDTO> orderedProductHistoryBetweenDate (String userId, Date startDate, Date endDate) {
         OrderedProductHistoryDAO theDAO = OrderedProductHistoryDAO.getInstance();
-        OrderedProductHistoryDTO theDTO = OrderedProductHistoryDTO.getInstance();
         List<OrderedProductHistoryDTO> OrderedProductHistoryDTOs = new ArrayList<>();
-        if (theDAO.getOrderedProductHistoryEntityWithUserId(userId) != null) {
-            for (OrderedProductHistoryEntity dao : theDAO.getOrderedProductHistoryEntityWithUserId(userId)) {
-                System.out.println(dao.getOrderDate().compareTo(startDate));
-                System.out.println(dao.getOrderDate().compareTo(endDate));
-                /*User_info*/
-                theDTO.setUserId(dao.getUserId());
-                theDTO.setUserPoint(dao.getUserPoint());
-                /*Product*/
-                theDTO.setProductName(dao.getProductName());
-                theDTO.setProductPrice(dao.getProductPrice());
-                /*Company*/
-                theDTO.setCompanyName(dao.getCompanyName());
-                theDTO.setCompany_tel(dao.getCompany_tel());
-                /*Order_info*/
-                theDTO.setOrderId(dao.getOrderId());
-                theDTO.setOrderDate(dao.getOrderDate());
+        List<OrderedProductHistoryEntity> theEntities=theDAO.getOrderedProductHistoryEntityWithUserId(userId);
+        if (theEntities != null) {
+            for (OrderedProductHistoryEntity entity : theEntities) {
+                if (entity.getOrderDate().compareTo(startDate)>0 && entity.getOrderDate().compareTo(endDate)<0){
+                    OrderedProductHistoryDTO theDTO = new OrderedProductHistoryDTO();
 
-                OrderedProductHistoryDTOs.add(theDTO);
-
+                    /*User_info*/
+                    theDTO.setUserId(entity.getUserId());
+                    theDTO.setUserPoint(entity.getUserPoint());
+                    /*Product*/
+                    theDTO.setProductName(entity.getProductName());
+                    theDTO.setProductPrice(entity.getProductPrice());
+                    /*Company*/
+                    theDTO.setCompanyName(entity.getCompanyName());
+                    theDTO.setCompany_tel(entity.getCompany_tel());
+                    /*Order_info*/
+                    theDTO.setOrderId(entity.getOrderId());
+                    theDTO.setOrderDate(entity.getOrderDate());
+                    OrderedProductHistoryDTOs.add(theDTO);
+                }
             }
             return OrderedProductHistoryDTOs;
         }
@@ -54,12 +54,11 @@ public class OrderedProductHistoryService {
     /*Entity를 DTO에 그대로 넣는다. (추가로 작업할게 없다)*/
     public List<OrderedProductHistoryDTO> orderedProductHistory (String userId){
         OrderedProductHistoryDAO theDAO = OrderedProductHistoryDAO.getInstance();
-        OrderedProductHistoryDTO theDTO = OrderedProductHistoryDTO.getInstance();
         List<OrderedProductHistoryDTO> OrderedProductHistoryDTOs = new ArrayList<>();
-
-        if(theDAO.getOrderedProductHistoryEntityWithUserId(userId)!=null){
-            for (OrderedProductHistoryEntity dao : theDAO.getOrderedProductHistoryEntityWithUserId(userId)){
-
+        List<OrderedProductHistoryEntity> theEntities=theDAO.getOrderedProductHistoryEntityWithUserId(userId);
+        if(theEntities!=null){
+            for (OrderedProductHistoryEntity dao : theEntities){
+                OrderedProductHistoryDTO theDTO = new OrderedProductHistoryDTO();
                 /*User_info*/
                 theDTO.setUserId(dao.getUserId());
                 theDTO.setUserPoint(dao.getUserPoint());

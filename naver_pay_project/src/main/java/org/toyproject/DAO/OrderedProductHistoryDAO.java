@@ -59,7 +59,6 @@ public class OrderedProductHistoryDAO {
             stmt.setString(1, userId);
             rs=stmt.executeQuery();
             while (rs.next()){
-                System.out.println("Next Exist");
                 /*User_info*/
 //                String userId="user_id";
                 int userPoint = rs.getInt("user_point");
@@ -76,12 +75,7 @@ public class OrderedProductHistoryDAO {
                 Long orderId = rs.getLong("order_id");
 
                 Date orderDate = rs.getDate("order_date");
-                System.out.println(userId);
-                System.out.println(productName);
-                System.out.println(productPrice);
-                System.out.println(companyName);
-                System.out.println(company_tel);
-                System.out.println(orderId);
+
 
                 OrderedProductHistoryEntity theEntity = new OrderedProductHistoryEntity(
                         userId, userPoint, productName,productPrice, companyName,company_tel, orderId, orderDate

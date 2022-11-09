@@ -20,3 +20,16 @@ VALUES ('배달의 민족','02-111-1111','URL',1111),
        ('스마트 스토어1','02-444-4444','URL',4444),
        ('스마트 스토어2','02-555-5555','URL',5555),
        ('스마트 스토어3','02-666-6666','URL',6666);
+
+INSERT INTO product(product_id,product_name, product_price, product_amount, company_id, supply_point)
+VALUES (1,'testproductName',10000,1,1,500),
+        (2, 'testproductName2',20000,1,2,100);
+
+INSERT INTO PAYMENT(payment_id,PAYMENT_METHOD,USER_SERIAL_NUM,USED_POINT,PAYMENT_MONEY)
+VALUES (1,'card',1,300,50000),
+        (2, 'card',1,1,30000);
+
+INSERT INTO ORDER_INFO(order_product_id, order_payment_id, order_date)
+VALUES (1,1,'2022-11-10'),
+       (2,2,'2021-5-5');
+
