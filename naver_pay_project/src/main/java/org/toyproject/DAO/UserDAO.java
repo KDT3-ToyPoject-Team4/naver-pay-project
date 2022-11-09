@@ -19,7 +19,7 @@ public class UserDAO {
     private ResultSet rs = null;
 
     //유저의 모든 정보 삽입
-    private static final String USER_INSERT_ALL = "INSERT INTO user_info(user_id, user_pw, user_name, user_ph, user_addr) VALUES(?, ?, ?, ?, ?)";
+    private static final String USER_INSERT_ALL = "INSERT INTO user_info(user_id, user_pw, user_name, user_ph, user_addr, user_point) VALUES(?, ?, ?, ?, ?, ?)";
     //유저 필수 정보만 삽입
     private static final String USER_INSERT = "INSERT INTO user_info(user_id, user_pw, user_name) VALUES(?,?,?)";
     //전체 데이터 조회 query (디버깅용)
@@ -119,19 +119,24 @@ public class UserDAO {
 
     /**
      * 필수 사용자 정보만 저장
-     * @param userDTO : user DTO 객체
+     * @param userEntity : user DTO 객체
      * @return DB에 삽입한 데이터 개수 반환 ( 1: 정상, 그 외 나머지 : error)
      */
     public int insertUser(UserEntity userEntity){
         int result = 0;
         try{
             conn = connectionPoolMgr.getConnection();
-            pstmt = conn.prepareStatement(USER_INSERT);
+            pstmt = conn.prepareStatement(USER_INSERT_ALL);
             pstmt.setString(1,userEntity.getUserID());
             pstmt.setString(2,userEntity.getUserPassword());
             pstmt.setString(3,userEntity.getUserName());
+            pstmt.setString(4,userEntity.getUserPhoneNumber());
+            pstmt.setString(5,userEntity.getUserAddress());
+            pstmt.setString(6,userEntity.getUserPoint());
+
             result = pstmt.executeUpdate();
             conn.commit();
+            System.out.println("DAO works");
         }catch (SQLException e){
             e.printStackTrace();
         }catch (Exception e){

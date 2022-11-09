@@ -30,12 +30,20 @@ public class UserService implements org.toyproject.Service.interfaces.UserServic
     public boolean autoLogin(String autoLogin, String cookieId) {
         return false;
     }
-    public UserEntity signUp(UserDTO tempDTO){
-        String tempUserId=tempDTO.getUserId();
+    public void signUp(UserDTO tempDTO){
+        UserDAO theDAO = new UserDAO();
 
-        UserEntity userEntity = new UserEntity("lala9663", userPassword, userName, userPhoneNumber, userAddress, "0");
-        if (userEntity == null) return null;
-        return userEntity;
+        String userId= tempDTO.getUserId();
+        String userPassword = tempDTO.getUserPassword();
+        String userName = tempDTO.getUserName();
+        String userPhoneNumber = tempDTO.getUserPhoneNumber();
+        String userAddress = tempDTO.getUserAddress();
+        System.out.println("Service" + userId);
+        UserEntity userEntity = new UserEntity(userId, userPassword, userName, userPhoneNumber, userAddress, "0");
+        if (userEntity != null) {
+            theDAO.insertUser(userEntity);
+        }
+
     }
     // 회원가입 입력값??
 

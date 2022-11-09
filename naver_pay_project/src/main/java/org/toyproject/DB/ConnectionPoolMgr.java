@@ -24,7 +24,7 @@ public class ConnectionPoolMgr {
 
     private String _driver = "org.h2.Driver",
             _url = "jdbc:h2:~/JDBC",
-            _user = "sa2",
+            _user = "sa",
             _password = "";
     private boolean _traceOn = false;
     private boolean initialized = false;

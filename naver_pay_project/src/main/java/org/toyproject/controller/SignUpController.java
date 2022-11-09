@@ -13,6 +13,7 @@ import org.toyproject.Service.UserService;
 public class SignUpController {
     @RequestMapping(value = "/SignUp", method = RequestMethod.GET)
     public String signup(){
+
         return "SignUp";      // WEB-INF/views/SignUp.jsp
     }
 
@@ -23,15 +24,12 @@ public class SignUpController {
                           @RequestParam("userName") String userName,
                           @RequestParam("userPhoneNumber") String userPhoneNumber,
                           @RequestParam("userAddress") String userAddress){
-//        userId=lala9663
 
-        UserDTO signDTO = new UserDTO();
+        System.out.println("Controller" + userId);
+        UserDTO signDTO = new UserDTO(userId, userPassword, userName, userPhoneNumber, userAddress);
         UserService theService = new UserService();
-        UserDAO theDAO = new UserDAO();
 
-
-        theDAO.insertUser(theService.signUp(signDTO));
-
+        theService.signUp(signDTO);
 
         return "Login";
     }
