@@ -15,11 +15,6 @@ public class UserDTO {
 
     }
 
-    public UserDTO(String userId, String userPassword) {
-        this.userId = userId;
-        this.userPassword = userPassword;
-    }
-
     public UserDTO(Long userSerialNum, String userID, String userPassword, String userName){
         this.userSerialNum = userSerialNum;
         this.userId = userID;
@@ -37,9 +32,11 @@ public class UserDTO {
         this.userPoint = userPoint;
     }
 
-    public UserEntity toEntity(){
-        return new UserEntity(userSerialNum.toString(), userId, userPassword, userName, userPhoneNumber, userAddress, String.valueOf(userPoint));
+    public UserDTO(String userId, String userPassword) {
+        this.userId = userId;
+        this.userPassword = userPassword;
     }
+
 
     public Long getUserSerialNum() {
         return userSerialNum;

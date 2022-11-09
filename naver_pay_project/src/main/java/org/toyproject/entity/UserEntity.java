@@ -45,6 +45,7 @@ public class UserEntity {
         this.userPhoneNumber = uPhoneNumber;
         this.userAddress = uAddress;
         this.userPoint = uPoint;
+
     }
 
     public UserDTO toUserDTO(){
