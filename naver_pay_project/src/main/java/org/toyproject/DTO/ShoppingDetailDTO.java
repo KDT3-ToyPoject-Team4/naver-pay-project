@@ -12,6 +12,25 @@ public class ShoppingDetailDTO {
     private String companyTel;
     private String companyStore;
     private String paymentMethod;
+    private int productPrice;
+    private int supplyPoint;
+
+    public ShoppingDetailDTO(Long orderId, String orderDate, int usedPoint, int orderMoney, String userName, String userTel, String userAddr,
+                             String companyName, String companyTel, String companyStore, String paymentMethod, int productPrice, int supplyPoint) {
+        this.orderId = orderId;
+        this.orderDate = orderDate;
+        this.usedPoint = usedPoint;
+        this.orderMoney = orderMoney;
+        this.userName = userName;
+        this.userTel = userTel;
+        this.userAddr = userAddr;
+        this.companyName = companyName;
+        this.companyTel = companyTel;
+        this.companyStore = companyStore;
+        this.paymentMethod = paymentMethod;
+        this.productPrice = productPrice;
+        this.supplyPoint = supplyPoint;
+    }
 
     public ShoppingDetailDTO(Long orderId, String orderDate, int usedPoint, int orderMoney,
                              String userName, String userTel, String userAddr, String companyName,
@@ -131,6 +150,8 @@ public class ShoppingDetailDTO {
                 ", companyTel='" + companyTel + '\'' +
                 ", companyStore='" + companyStore + '\'' +
                 ", paymentMethod='" + paymentMethod + '\'' +
+                ", productPrice=" + productPrice +
+                ", supplyPoint=" + supplyPoint +
                 '}';
     }
 }

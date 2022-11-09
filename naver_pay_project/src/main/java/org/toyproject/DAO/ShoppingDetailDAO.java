@@ -49,14 +49,14 @@ public class ShoppingDetailDAO {
                 Long oId = rs.getLong("ORDER_ID");
                 String orderDate = rs.getString("ORDER_DATE");
                 int orderMoney = rs.getInt("ORDER_MONEY");
-                String productPrice = rs.getString("PRODUCT_PRICE");
-                String supplyPoint = rs.getString("SUPPLY_POINT");
+                int productPrice = rs.getInt("PRODUCT_PRICE");
+                int supplyPoint = rs.getInt("SUPPLY_POINT");
                 String paymentMethod = rs.getString("payment_method");
                 String companyName = rs.getString("COMPANY_NAME");
                 String companyTel = rs.getString("COMPANY_TEL");
                 String companyStore = rs.getString("COMPANY_STORE");
                 detailDTO = new ShoppingDetailDTO(oId,orderDate,uPoint,orderMoney,
-                        uName,uPhoneNumber,uAddress,companyName,companyTel,companyStore,paymentMethod);
+                        uName,uPhoneNumber,uAddress,companyName,companyTel,companyStore,paymentMethod,productPrice,supplyPoint);
             }
         }catch (SQLException e){
             e.printStackTrace();
