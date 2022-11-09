@@ -65,9 +65,6 @@
             margin-bottom: 20px;
         }
 
-        .sns-chk {
-            margin-top: 5px;
-        }
     </style>
     <title>Register</title>
 </head>
