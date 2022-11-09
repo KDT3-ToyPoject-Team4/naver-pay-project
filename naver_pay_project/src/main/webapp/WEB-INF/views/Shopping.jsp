@@ -12,7 +12,7 @@
 </head>
 <body>
     <h1>주문 목록 화면 입니다.</h1>
-    ${shoppingList}
+    ${1000}
     <button type="button" onclick="location.href='getShoppingDetailList'">주문 결과 상세 페이지로 이동하기</button>
 </body>
 </html>
