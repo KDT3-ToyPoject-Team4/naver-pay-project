@@ -42,6 +42,15 @@
     <orderEntry type="library" name="google.guava" level="project" />
     <orderEntry type="library" name="io.github.bonigarcia.webdrivermanager" level="project" />
     <orderEntry type="library" name="h2-2.1.214" level="project" />
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/lib/jsoup-1.15.3.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
     <orderEntry type="library" name="Maven: org.springframework:spring-context:5.3.23" level="project" />
     <orderEntry type="library" name="Maven: org.springframework:spring-aop:5.3.23" level="project" />
     <orderEntry type="library" name="Maven: org.springframework:spring-beans:5.3.23" level="project" />
@@ -186,14 +195,5 @@
     <orderEntry type="library" name="Maven: org.seleniumhq.selenium:selenium-manager:4.6.0" level="project" />
     <orderEntry type="library" name="Maven: org.seleniumhq.selenium:selenium-safari-driver:4.6.0" level="project" />
     <orderEntry type="library" name="Maven: org.seleniumhq.selenium:selenium-support:4.6.0" level="project" />
-    <orderEntry type="module-library">
-      <library>
-        <CLASSES>
-          <root url="jar://$MODULE_DIR$/lib/jsoup-1.15.3.jar!/" />
-        </CLASSES>
-        <JAVADOC />
-        <SOURCES />
-      </library>
-    </orderEntry>
   </component>
 </module>
