@@ -1,4 +1,4 @@
-package org.toyproject.controller;
+package org.toyproject.controller.nonlogin;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;

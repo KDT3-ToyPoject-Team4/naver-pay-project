@@ -2,7 +2,7 @@ package org.toyproject.Service;
 
 import org.toyproject.DAO.OrderedProductHistoryDAO;
 import org.toyproject.DTO.OrderedProductHistoryDTO;
-import org.toyproject.Entity.OrderedProductHistoryEntity;
+import org.toyproject.entity.OrderedProductHistoryEntity;
 
 import java.util.ArrayList;
 import java.util.List;
