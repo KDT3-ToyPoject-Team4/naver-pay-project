@@ -1,8 +1,11 @@
-package org.toyproject.entity;
+package org.toyproject.Entity;
+
+import org.toyproject.Service.OrderedProductHistoryService;
 
 import java.util.Date;
 
 public class OrderedProductHistoryEntity {
+
 
     /*User_info*/
     private String userId;
@@ -19,6 +22,7 @@ public class OrderedProductHistoryEntity {
     /*Order_info*/
     private Long orderId;
     private Date orderDate;
+
 
 
 

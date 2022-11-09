@@ -1,4 +1,6 @@
-<%--
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ page import="org.toyproject.DTO.OrderedProductHistoryDTO" %>
+<%@ page import="org.springframework.web.bind.annotation.ModelAttribute" %><%--
   Created by IntelliJ IDEA.
   User: user
   Date: 2022-11-02
@@ -16,25 +18,31 @@
     ${shoppingList}
     <div class="container">
         <div class="section-1">
-            <p>사용자 이름 : ${userName}</p>
-            <p>사용자 포인트 : ${userPoint}</p>
+            <p>사용자 이름 : ${dtoList.get(0).userId}</p>
+            <p>사용자 포인트 : ${dtoList.get(0).userPoint}</p>
         </div>
         <div class="section-2">
             <div class="cont-1">
                 <p>날짜를 입력 해주세요.</p>
                 <form>
-                    <input type="text" name="searchDate">
+                    <input type="date" name="startDate" required>
+                    <input type="date" name="endDate" required>
                     <button type="button" onclick="location.href='getSearchDate'">검색</button>
                 </form>
             </div>
             <div class="cont-2">
-                <p>날짜 : ${date}</p>
-                <p>상품명 : ${produectName}</p>
-                <p>상품 가격 : ${produectPrice}</p>
-                <p>결제 날짜 : ${orderDate}</p>
-                <p>회사 이름 : ${companyName}</p>
-                <p>회사 전화 번호 : ${companyTel}</p>
-                <p>해당 주문 결과 상세 페이지로 이동하기 : <button type="button" onclick="location.href='getShoppingDetailList'">이동</button></p>
+                <c:forEach items="${dtoList}" var = "dto">
+                    <tr>
+                        <td>주문 번호: ${dto.orderId}</td>
+                        <td>상품명: ${dto.productName}</td>
+                        <td>상품가격: ${dto.productPrice}</td>
+                        <td>결제날짜: ${dto.orderDate}</td>
+                        <td>회사이름: ${dto.companyName}</td>
+                        <td>회사번호: ${dto.company_tel}</td>
+                        <p><button type="button" onclick="location.href='getShoppingDetailList'">주문 상세</button></p>
+                    </tr>
+                </c:forEach>
+
             </div>
         </div>
     </div>

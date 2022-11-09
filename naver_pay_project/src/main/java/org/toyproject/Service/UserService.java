@@ -3,7 +3,7 @@ package org.toyproject.Service;
 import org.springframework.stereotype.Service;
 import org.toyproject.DAO.UserDAO;
 import org.toyproject.DTO.UserDTO;
-import org.toyproject.entity.UserEntity;
+import org.toyproject.Entity.UserEntity;
 
 import java.util.List;
 

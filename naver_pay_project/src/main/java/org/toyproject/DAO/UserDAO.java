@@ -2,7 +2,7 @@ package org.toyproject.DAO;
 
 import org.toyproject.DB.ConnectionPoolMgr;
 import org.toyproject.DTO.UserDTO;
-import org.toyproject.entity.UserEntity;
+import org.toyproject.Entity.UserEntity;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -19,7 +19,7 @@ public class UserDAO {
     private ResultSet rs = null;
 
     //유저의 모든 정보 삽입
-    private static final String USER_INSERT_ALL = "INSERT INTO user_info(user_id, user_pw, user_name, user_ph, user_addr) VALUES(?, ?, ?, ?, ?)";
+    private static final String USER_INSERT_ALL = "INSERT INTO user_info(user_id, user_pw, user_name, user_tel, user_addr) VALUES(?, ?, ?, ?, ?)";
     //유저 필수 정보만 삽입
     private static final String USER_INSERT = "INSERT INTO user_info(user_id, user_pw, user_name) VALUES(?,?,?)";
     //전체 데이터 조회 query (디버깅용)
