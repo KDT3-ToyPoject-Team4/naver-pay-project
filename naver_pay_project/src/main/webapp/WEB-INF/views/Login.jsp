@@ -99,9 +99,9 @@
 %>
 
 <!-- -->
-<header>
-    <jsp:include page="layout/header.jsp"/>
-</header>
+<%--<header>--%>
+<%--    <jsp:include page="layout/header.jsp"/>--%>
+<%--</header>--%>
 
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
          pageEncoding="EUC-KR"%>

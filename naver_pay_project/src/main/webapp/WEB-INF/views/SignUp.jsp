@@ -73,7 +73,7 @@
 </head>
 <body>
 
-<form action="/sign/success" method="POST">
+<form action="/login" method="POST">
     <%--<form action="/sign/success" method="POST" onsubmit="return setMessage(this)">--%>
     <%--  회원 가입 완료하면 입력한 정보 저장하고 메인 페이지로 이동하기--%>
 

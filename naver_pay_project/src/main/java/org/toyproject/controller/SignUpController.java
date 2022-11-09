@@ -12,10 +12,10 @@ public class SignUpController {
     }
 
 
-    @RequestMapping("/sign/success")
+    @RequestMapping("/login")
     public String success(){
 
-        return "index";
+        return "Login";
     }
 
 
