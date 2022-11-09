@@ -23,6 +23,7 @@
         <jboss.validation-version>8.0.0.Final</jboss.validation-version>
     </properties>
 
+
     <!-- dependencies 태그 안에는 프로젝트와 의존 관계에 있는 라이브러리들을 관리함 -->
     <dependencies>
         <dependency>
@@ -51,6 +52,15 @@
             <groupId>org.springframework</groupId>
             <artifactId>spring-webmvc</artifactId>
             <version>${org.springframework-version}</version>
+        </dependency>
+
+
+
+        <!-- https://mvnrepository.com/artifact/io.github.bonigarcia/webdrivermanager -->
+        <dependency>
+            <groupId>io.github.bonigarcia</groupId>
+            <artifactId>webdrivermanager</artifactId>
+            <version>5.3.1</version>
         </dependency>
 
         <!-- AspectJ -->

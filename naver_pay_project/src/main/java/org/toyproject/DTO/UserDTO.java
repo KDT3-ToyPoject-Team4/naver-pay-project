@@ -15,6 +15,11 @@ public class UserDTO {
 
     }
 
+    public UserDTO(String userId, String userPassword) {
+        this.userId = userId;
+        this.userPassword = userPassword;
+    }
+
     public UserDTO(Long userSerialNum, String userID, String userPassword, String userName){
         this.userSerialNum = userSerialNum;
         this.userId = userID;
