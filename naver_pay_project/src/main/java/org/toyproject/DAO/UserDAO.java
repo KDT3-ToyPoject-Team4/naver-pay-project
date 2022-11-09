@@ -2,7 +2,6 @@ package org.toyproject.DAO;
 
 import org.toyproject.DB.ConnectionPoolMgr;
 import org.toyproject.DTO.UserDTO;
-import org.toyproject.entity.UserEntity;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
