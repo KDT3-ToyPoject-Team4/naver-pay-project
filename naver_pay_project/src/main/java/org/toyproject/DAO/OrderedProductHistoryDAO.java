@@ -20,25 +20,33 @@ public class OrderedProductHistoryDAO {
 
     //해당 과거제품주문 목록 가져오기  (OrderedProductHistoryEntity)
     private static final String Payment_SELECT_ORDEREDPRODUCTHISTORY =
-            "SELECT A.user_id, A.user_point,\n" +
-                    "       B.order_id, B. order_date\n" +
-                    "       C.product_name, C.product_price,\n" +
-                    "       D.company_name, D.company_tel,\n" +
-                    "FROM\n" +
-                    "(\n" +
-                    "    (SELECT user_serial_num, user_id, user_point) A\n" +
-                    "    FULL OUTER JOIN\n" +
-                    "    (SELECT user_serial_num, order_product_id, order_company_id,\n" +
-                    "    order_payment_id, order_id, order_date) B on A.user_serial_num = B.user_serial_num\n" +
-                    "    FULL OUTER JOIN\n" +
-                    "    (SELECT product_id, product_name, product_price) C on B.order_product_id = C.product_id\n" +
-                    "    FULL OUTER JOIN\n" +
-                    "    (SELECT company_id, company_name, company_tel) D on B.company_id = D.company_id)\n" +
-                    ")\n" +
-                    "WHERE user_id = ?\n" +
-                    "ORDER BY order_date DESC";
+            "SELECT A.user_id,\n" +
+                    "       A.user_point,\n" +
+                    "       C.order_id,\n" +
+                    "       C.order_date,\n" +
+                    "       D.product_name,\n" +
+                    "       D.product_price,\n" +
+                    "       E.company_name,\n" +
+                    "       E.company_tel\n" +
+                    "FROM USER_INFO A\n" +
+                    "        LEFT OUTER JOIN\n" +
+                    "    PAYMENT B on A.user_serial_num = B.user_serial_num\n" +
+                    "        LEFT OUTER JOIN\n" +
+                    "     order_info C on B.payment_id = C.order_payment_id\n" +
+                    "        LEFT OUTER JOIN\n" +
+                    "     Product D on C.order_product_id = D.product_id\n" +
+                    "        LEFT OUTER JOIN\n" +
+                    "     Company E on E.company_id = D.company_id\n" +
+                    "\n" +
+                    "WHERE user_id = ? ORDER BY order_date DESC;";
+
+
+
     //해당 기간사이 결제정보 가져오기
 
+    public static void main(String[] args) {
+        OrderedProductHistoryEntity test = new OrderedProductHistoryEntity();
+    }
 
     public OrderedProductHistoryDAO(){}
     public static OrderedProductHistoryDAO getInstance(){
@@ -50,14 +58,12 @@ public class OrderedProductHistoryDAO {
 
     public List<OrderedProductHistoryEntity> getOrderedProductHistoryEntityWithUserId(String userId){
         List<OrderedProductHistoryEntity> OrderedProductHistoryEntities = new ArrayList<>();
-
         try{
             conn= JDBCMgr.getConnection();
             stmt=conn.prepareStatement(Payment_SELECT_ORDEREDPRODUCTHISTORY);
             stmt.setString(1, userId);
             rs=stmt.executeQuery();
-
-            if (rs.next()){
+            while (rs.next()){
                 /*User_info*/
 //                String userId="user_id";
                 int userPoint = rs.getInt("user_point");
@@ -72,13 +78,15 @@ public class OrderedProductHistoryDAO {
 
                 /*Order_info*/
                 Long orderId = rs.getLong("order_id");
+
                 Date orderDate = rs.getDate("order_date");
+
                 OrderedProductHistoryEntity theEntity = new OrderedProductHistoryEntity(
-                                                            userId, userPoint, productName,productPrice,
-                                                            companyName,company_tel,orderId,orderDate);
+                        userId, userPoint, productName,productPrice, companyName,company_tel, orderId, orderDate
+                );
                 OrderedProductHistoryEntities.add(theEntity);
-                return OrderedProductHistoryEntities;
             }
+            return OrderedProductHistoryEntities;
         }catch (SQLException e){
             e.printStackTrace();
         }finally{

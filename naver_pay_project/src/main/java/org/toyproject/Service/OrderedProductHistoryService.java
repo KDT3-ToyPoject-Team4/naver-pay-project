@@ -5,6 +5,7 @@ import org.toyproject.DTO.OrderedProductHistoryDTO;
 import org.toyproject.Entity.OrderedProductHistoryEntity;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 public class OrderedProductHistoryService {
@@ -21,6 +22,34 @@ public class OrderedProductHistoryService {
         return orderedProductHistoryService;
     }
 
+    public List<OrderedProductHistoryDTO> orderedProductHistoryBetweenDate (String userId, Date startDate, Date endDate) {
+        OrderedProductHistoryDAO theDAO = OrderedProductHistoryDAO.getInstance();
+        OrderedProductHistoryDTO theDTO = OrderedProductHistoryDTO.getInstance();
+        List<OrderedProductHistoryDTO> OrderedProductHistoryDTOs = new ArrayList<>();
+
+        if (theDAO.getOrderedProductHistoryEntityWithUserId(userId) != null) {
+            for (OrderedProductHistoryEntity dao : theDAO.getOrderedProductHistoryEntityWithUserId(userId)) {
+
+                /*User_info*/
+                theDTO.setUserId(dao.getUserId());
+                theDTO.setUserPoint(dao.getUserPoint());
+                /*Product*/
+                theDTO.setProductName(dao.getProductName());
+                theDTO.setProductPrice(dao.getProductPrice());
+                /*Company*/
+                theDTO.setCompanyName(dao.getCompanyName());
+                theDTO.setCompany_tel(dao.getCompany_tel());
+                /*Order_info*/
+                theDTO.setOrderId(dao.getOrderId());
+                theDTO.setOrderDate(dao.getOrderDate());
+
+                OrderedProductHistoryDTOs.add(theDTO);
+
+            }
+            return OrderedProductHistoryDTOs;
+        }
+        return null;
+    }
 
     /*Entity를 DTO에 그대로 넣는다. (추가로 작업할게 없다)*/
     public List<OrderedProductHistoryDTO> orderedProductHistory (String userId){
