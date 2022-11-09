@@ -1,8 +1,10 @@
 show tables;
 
+
 SELECT * FROM USER_INFO;
 
 INSERT INTO USER_INFO (user_id, user_pw, user_name, user_ph, user_addr)
+
 VALUES ('a1234','a123!@#','tester1','010-1111-1111','home1'),
        ('b1234','b123!@#','tester2','010-2222-2222','home2'),
        ('c1234','c123!@#','tester3','010-3333-3333','home3'),
@@ -12,6 +14,9 @@ VALUES ('a1234','a123!@#','tester1','010-1111-1111','home1'),
        ('g1234','g123!@#','tester7','010-7777-7777','home7'),
        ('h1234','h123!@#','tester8','010-8888-8888','home8'),
        ('i1234','i123!@#','tester9','010-9999-9999','home9');
+
+INSERT INTO USER_INFO (user_id, user_pw, user_name, user_ph, user_addr)
+    values ('j1234','j123!@#','tester0','010-9999-9999','home10');
 
 INSERT INTO COMPANY (COMPANY_NAME, COMPANY_TEL, COMPANY_STORE, BUSINESS_NUMBER)
 VALUES ('배달의 민족','02-111-1111','URL',1111),

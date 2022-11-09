@@ -1,4 +1,4 @@
-package org.toyproject.entity;
+package org.toyproject.Entity;
 
 import org.toyproject.DTO.UserDTO;
 
@@ -38,13 +38,13 @@ public class UserEntity {
         this.userAddress = userAddress;
     }
 
-    public UserEntity(String uId, String uPassword, String uName, String uPhoneNumber, String uAddress, String uPoint) {
-        this.userId = uId;
-        this.userPassword = uPassword;
-        this.userName = uName;
-        this.userPhoneNumber = uPhoneNumber;
-        this.userAddress = uAddress;
-        this.userPoint = uPoint;
+    public UserEntity(String userId, String userPassword, String userName, String userPhoneNumber, String userAddress, String userPoint) {
+        this.userId = userId;
+        this.userPassword = userPassword;
+        this.userName = userName;
+        this.userPhoneNumber = userPhoneNumber;
+        this.userAddress = userAddress;
+        this.userPoint = userPoint;
     }
 
     public UserDTO toUserDTO(){
@@ -52,6 +52,7 @@ public class UserEntity {
         int uPoint = Integer.parseInt(userPoint);
         return new UserDTO(uSerialNum, userId, userPassword, userName, userPhoneNumber, userAddress, uPoint);
     }
+
 
 
     public String getUserSerialNum() {

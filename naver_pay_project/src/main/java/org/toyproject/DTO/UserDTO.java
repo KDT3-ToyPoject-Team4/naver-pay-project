@@ -1,6 +1,7 @@
 package org.toyproject.DTO;
 
-import org.toyproject.entity.UserEntity;
+import org.toyproject.Entity.UserEntity;
+
 
 public class UserDTO {
     private Long userSerialNum;

@@ -2,7 +2,7 @@ package org.toyproject.DAO;
 
 import org.toyproject.DB.ConnectionPoolMgr;
 import org.toyproject.DTO.UserDTO;
-import org.toyproject.entity.UserEntity;
+import org.toyproject.Entity.UserEntity;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -122,14 +122,14 @@ public class UserDAO {
      * @param userDTO : user DTO 객체
      * @return DB에 삽입한 데이터 개수 반환 ( 1: 정상, 그 외 나머지 : error)
      */
-    public int insertUser(UserDTO userDTO){
+    public int insertUser(UserEntity userEntity){
         int result = 0;
         try{
             conn = connectionPoolMgr.getConnection();
             pstmt = conn.prepareStatement(USER_INSERT);
-            pstmt.setString(1,userDTO.getUserId());
-            pstmt.setString(2,userDTO.getUserPassword());
-            pstmt.setString(3,userDTO.getUserName());
+            pstmt.setString(1,userEntity.getUserID());
+            pstmt.setString(2,userEntity.getUserPassword());
+            pstmt.setString(3,userEntity.getUserName());
             result = pstmt.executeUpdate();
             conn.commit();
         }catch (SQLException e){

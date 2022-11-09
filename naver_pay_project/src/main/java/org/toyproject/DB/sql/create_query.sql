@@ -1,5 +1,4 @@
 show tables;
-
 CREATE TABLE user_info(
                           user_serial_num LONG NOT NULL AUTO_INCREMENT,
                           user_id varchar(128) NOT NULL,

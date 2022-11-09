@@ -1,7 +1,7 @@
 package org.toyproject.DAO;
 
 import org.toyproject.DB.JDBCMgr;
-import org.toyproject.entity.OrderedProductHistoryEntity;
+import org.toyproject.Entity.OrderedProductHistoryEntity;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;

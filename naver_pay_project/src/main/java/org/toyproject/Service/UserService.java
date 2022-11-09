@@ -3,7 +3,7 @@ package org.toyproject.Service;
 import org.springframework.stereotype.Service;
 import org.toyproject.DAO.UserDAO;
 import org.toyproject.DTO.UserDTO;
-import org.toyproject.entity.UserEntity;
+import org.toyproject.Entity.UserEntity;
 
 import java.util.List;
 
@@ -30,7 +30,14 @@ public class UserService implements org.toyproject.Service.interfaces.UserServic
     public boolean autoLogin(String autoLogin, String cookieId) {
         return false;
     }
+    public UserEntity signUp(UserDTO tempDTO){
+        String tempUserId=tempDTO.getUserId();
 
+        UserEntity userEntity = new UserEntity("lala9663", userPassword, userName, userPhoneNumber, userAddress, "0");
+        if (userEntity == null) return null;
+        return userEntity;
+    }
+    // 회원가입 입력값??
 
     @Override
     public UserDTO login(String userId, String userPassword) {
