@@ -54,7 +54,6 @@ public class OrderedProductHistoryService {
                     /*Order_info*/
                     theDTO.setOrderId(dao.getOrderId());
                     theDTO.setOrderDate(dao.getOrderDate());
-
                     OrderedProductHistoryDTOs.add(theDTO);
                 }
             }
