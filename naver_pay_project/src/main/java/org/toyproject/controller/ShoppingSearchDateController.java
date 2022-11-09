@@ -37,10 +37,12 @@ public class ShoppingSearchDateController {
                             @RequestParam("startDate") Date startDate,
                            @RequestParam("endDate") Date endDate, Model model) throws ParseException {
         String userId="a1234";
+        java.sql.Date sqlStartDate = new java.sql.Date(startDate.getTime());
+        java.sql.Date sqlEndDate = new java.sql.Date(endDate.getTime());
         System.out.println(startDate);
         System.out.println(endDate);
         OrderedProductHistoryService theService = OrderedProductHistoryService.getInstance();
-        if(theService.orderedProductHistoryBetweenDate(userId,startDate,endDate).size()==0){
+        if(theService.orderedProductHistoryBetweenDate(userId,sqlStartDate,sqlEndDate).size()==0){
             return "NoOrderHistory";
         }
         model.addAttribute("dtoList",theService.orderedProductHistoryBetweenDate(userId,startDate,endDate));

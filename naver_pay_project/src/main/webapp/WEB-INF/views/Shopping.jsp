@@ -23,7 +23,8 @@
             <div class="cont-1">
                 <p>날짜를 입력 해주세요.</p>
                 <form>
-                    <input type="text" name="searchDate">
+                    <input type="date" name="startDate">
+                    <input type="date" name="endDate">
                     <button type="button" onclick="location.href='getSearchDate'">검색</button>
                 </form>
             </div>
