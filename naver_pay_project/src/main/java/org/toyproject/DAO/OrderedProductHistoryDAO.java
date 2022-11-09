@@ -43,11 +43,6 @@ public class OrderedProductHistoryDAO {
 
 
     //해당 기간사이 결제정보 가져오기
-
-    public static void main(String[] args) {
-        OrderedProductHistoryEntity test = new OrderedProductHistoryEntity();
-    }
-
     public OrderedProductHistoryDAO(){}
     public static OrderedProductHistoryDAO getInstance(){
         if (orderedProductHistoryDAO ==null){
@@ -64,6 +59,7 @@ public class OrderedProductHistoryDAO {
             stmt.setString(1, userId);
             rs=stmt.executeQuery();
             while (rs.next()){
+                System.out.println("Next Exist");
                 /*User_info*/
 //                String userId="user_id";
                 int userPoint = rs.getInt("user_point");
@@ -80,6 +76,12 @@ public class OrderedProductHistoryDAO {
                 Long orderId = rs.getLong("order_id");
 
                 Date orderDate = rs.getDate("order_date");
+                System.out.println(userId);
+                System.out.println(productName);
+                System.out.println(productPrice);
+                System.out.println(companyName);
+                System.out.println(company_tel);
+                System.out.println(orderId);
 
                 OrderedProductHistoryEntity theEntity = new OrderedProductHistoryEntity(
                         userId, userPoint, productName,productPrice, companyName,company_tel, orderId, orderDate

@@ -26,10 +26,10 @@ public class OrderedProductHistoryService {
         OrderedProductHistoryDAO theDAO = OrderedProductHistoryDAO.getInstance();
         OrderedProductHistoryDTO theDTO = OrderedProductHistoryDTO.getInstance();
         List<OrderedProductHistoryDTO> OrderedProductHistoryDTOs = new ArrayList<>();
-
         if (theDAO.getOrderedProductHistoryEntityWithUserId(userId) != null) {
             for (OrderedProductHistoryEntity dao : theDAO.getOrderedProductHistoryEntityWithUserId(userId)) {
-
+                System.out.println(dao.getOrderDate().compareTo(startDate));
+                System.out.println(dao.getOrderDate().compareTo(endDate));
                 /*User_info*/
                 theDTO.setUserId(dao.getUserId());
                 theDTO.setUserPoint(dao.getUserPoint());

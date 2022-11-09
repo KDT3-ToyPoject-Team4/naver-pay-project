@@ -39,15 +39,15 @@ public class ShoppingSearchDateController {
         String userId="a1234";
         java.sql.Date sqlStartDate = new java.sql.Date(startDate.getTime());
         java.sql.Date sqlEndDate = new java.sql.Date(endDate.getTime());
-        System.out.println(startDate);
-        System.out.println(endDate);
+        System.out.println(sqlStartDate);
+        System.out.println(sqlEndDate);
         OrderedProductHistoryService theService = OrderedProductHistoryService.getInstance();
+        System.out.println(theService.orderedProductHistoryBetweenDate(userId,sqlStartDate,sqlEndDate).size());
         if(theService.orderedProductHistoryBetweenDate(userId,sqlStartDate,sqlEndDate).size()==0){
             return "NoOrderHistory";
         }
-        model.addAttribute("dtoList",theService.orderedProductHistoryBetweenDate(userId,startDate,endDate));
-        model.addAttribute("shoppingList",theService.orderedProductHistoryBetweenDate(userId,startDate,endDate).size() + "건의 검색결과");
-
+        model.addAttribute("dtoList",theService.orderedProductHistoryBetweenDate(userId,sqlStartDate,sqlEndDate));
+        model.addAttribute("shoppingList",theService.orderedProductHistoryBetweenDate(userId,sqlStartDate,sqlEndDate).size() + "건의 검색결과");
         return "Shopping";
 
     }
