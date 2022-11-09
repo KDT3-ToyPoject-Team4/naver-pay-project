@@ -6,9 +6,9 @@ import org.toyproject.DTO.UserDTO;
 import org.toyproject.entity.UserEntity;
 
 import java.util.List;
-
+import org.toyproject.Service.interfaces.UserServiceInterface;
 @Service
-public class UserService implements org.toyproject.Service.interfaces.UserServiceInterface {
+public class UserService implements UserServiceInterface {
     private UserDAO userDAO = UserDAO.getInstance();
 
     private static UserService userService = null;
@@ -33,12 +33,14 @@ public class UserService implements org.toyproject.Service.interfaces.UserServic
 
 
     @Override
-    public UserDTO login(String userId, String userPassword) {
+    public UserDTO Login(String userId, String userPassword) {
         UserDTO userDTO = new UserDTO(userId, userPassword);
+
         if (userDTO == null) return null;
 
-
         UserEntity user = userDAO.select(userDTO.getUserId(), userDTO.getUserPassword());//왜 null이 될까ㅏ..
+
+        System.out.println(user);
         if (user == null || user.getUserPassword() == null) return null;
         if (user.getUserPassword().equals(userDTO.getUserPassword())) {
 

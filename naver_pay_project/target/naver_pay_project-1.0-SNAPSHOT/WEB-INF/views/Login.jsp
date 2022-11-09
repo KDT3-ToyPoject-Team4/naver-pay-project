@@ -1,37 +1,181 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: user
-  Date: 2022-11-02
-  Time: ì˜¤í›„ 4:49
-  To change this template use File | Settings | File Templates.
---%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page import="java.util.Arrays" %>
+<%@ page import="org.toyproject.controller.login.Status" %>
+<%
+    if (session.getAttribute("SESSION_ID") != null) {
+        response.sendRedirect("./index.jsp");
+    }
+
+%>
+
+<%
+
+    ///////////////// ÄíÅ° °ª Áß ·Î±×ÀÎÇÏ±â À§ÇØ¼­ ¹«Á¶°Ç ÀÖ¾î¾ßÇÏ´Â °ªÀÌ ¾ø´ÂÁö È®ÀÎ //////////////////
+    String[] mustCookies = {"COOKIE_ID", "COOKIE_PW", "COOKIE_HASH_PW", "AUTO_LOGIN"};
+    Cookie[] cookies = request.getCookies();
+    String[] cookiesName = Arrays.stream(request.getCookies()).map(c -> c.getName()).toArray(String[]::new);
+    boolean isMustCookies = false;
+    for (int i = 0; i < mustCookies.length; i++) {
+        if (cookiesName != null) {
+            for (int j = 0; j < cookiesName.length; j++) {
+                if (mustCookies[i].equals(cookiesName[j])) {
+                    isMustCookies = true;
+                    break;
+                }
+            }
+            if (!isMustCookies) {
+                break;
+            }
+        }
+    }
+
+    // ÇÏ³ª¶óµµ ¾øÀ¸¸é ÄíÅ°¿¡ ÀúÀåµÈ ¸ğµç ¿ä¼Ò ´Ù »èÁ¦
+    if (!isMustCookies) {
+        for (int i = 0; i < mustCookies.length; i++) {
+            if (cookies != null) {
+                for (int j = 0; j < cookies.length; j++) {
+                    if (mustCookies[i].equals(cookies[j].getName())) {
+                        cookies[j].setMaxAge(0);
+                        cookies[j].setPath("/");
+                        response.addCookie(cookies[j]);
+                    }
+                }
+            }
+        }
+    }
+%>
+
+<%
+    //////////////////////////// ÀÚµ¿ ·Î±×ÀÎ ½Ãµµ ///////////////////////////
+    if (cookies != null) {
+        for (Cookie cookie : cookies) {
+            if (cookie.getName() != null) {
+                if (cookie.getName().equals("ÀÚµ¿ ·Î±×ÀÎ")) {
+                    String value = cookie.getValue();
+                    if (value.equals("true")) {
+%>
+<script>
+    location.href = "./DoAutoLoginServlet";
+</script>
+<%
+                    }
+                }
+            }
+        }
+    }
+%>
+
+
+
+<%
+
+    if (session.getAttribute("Login") != null) {
+        if (session.getAttribute("Login") == Status.FAIL) {
+%>
+<script>alert("Login Fail!")</script>
+<%
+
+} else if (session.getAttribute("Login") == Status.NULL) {
+
+%>
+<script>alert("Sign Up First.")</script>
+<%
+        }
+        session.removeAttribute("Login");
+    }
+%>
+
+<%
+
+    if (session.getAttribute("signup") != null) {
+
+        if (session.getAttribute("signup") == Status.SUCCESS) {
+
+%>
+<script>alert("Sign Up Success!")</script>
+<%
+        }
+        session.removeAttribute("signup");
+    }
+%>
+
+<!-- -->
+
+
+<%@ page language="java" contentType="text/html; charset=EUC-KR"
+         pageEncoding="EUC-KR"%>
+
 <html>
+
 <head>
-    <title>Login</title>
-    <link rel="stylesheet" href="../../resources/css/Login.css">
+    <title>·Î±×ÀÎ È­¸é</title>
+
+    <script type="text/javascript">
+
+        function checkValue()
+        {
+            inputForm = eval("document.LoginInfo");
+            if(!inputForm.userId.value)
+            {
+                alert("¾ÆÀÌµğ¸¦ ÀÔ·ÂÇÏ¼¼¿ä");
+                inputForm.userId.focus();
+                return false;
+            }
+            if(!inputForm.userPassword.value)
+            {
+                alert("ºñ¹Ğ¹øÈ£¸¦ ÀÔ·ÂÇÏ¼¼¿ä");
+                inputForm.userPassword.focus();
+                return false;
+            }
+        }
+
+        <!--È¸¿ø°¡ÀÔ-->
+        function goJoinForm() {
+            location.href="signup";
+        }
+    </script>
+
 </head>
 <body>
-    <h1> ë¡œê·¸ì¸ í™”ë©´ ì…ë‹ˆë‹¤. </h1>
-    <div class="container">
-        <div class="section-1">
-            <button>ë¡œê·¸ì•„ì›ƒ</button>
-            <button>ë‚´ ì •ë³´</button>
-            <button>íšŒì› íƒˆí‡´</button>
-        </div>
-        <div class="section-2">
-            <form action="login" method="post">
-                ì•„ì´ë”” :
-                <input type="text" name="Id" placeholder="ì•„ì´ë”” ì…ë ¥">
-                ë¹„ë°€ë²ˆí˜¸ :
-                <input type="password" name="password" placeholder="ë¹„ë°€ë²ˆí˜¸ ì…ë ¥">
-                <button type="submit">ë¡œê·¸ì¸</button>
-            </form>
-        </div>
-        <div class="section-3">
-<%--            action="shoppingList" method="post"--%>
-            <button type="button" onclick="location.href='shoppingList'">ì£¼ë¬¸ ëª©ë¡ ë¦¬ìŠ¤íŠ¸ë¡œ ì´ë™í•˜ê¸°</button>
-        </div>
-    </div>
+<div id="wrap">
+    <form name="LoginInfo" method="post" action="Login"
+          onsubmit="return checkValue()">
+
+        <br>³×ÀÌ¹ö ÆäÀÌ ÇÁ·ÎÁ§Æ®<br>
+
+        <table>
+            <tr>
+                <div class="form__list">
+                    <td bgcolor="PowderBlue">¾ÆÀÌµğ</td>
+                    <td><input type="text" id="userId" name="userId" maxlength="50"></td>
+                </div>
+            </tr>
+            <tr>
+                <div class="form__list">
+                    <td bgcolor="PowderBlue">ºñ¹Ğ¹øÈ£</td>
+                    <td><input type="password" id="userPassword" name="userPassword" maxlength="50"></td>
+                </div>
+            </tr>
+        </table>
+        <br>
+
+        <input type="submit" value="·Î±×ÀÎ"/>
+
+    </form>
+
+</div>
 </body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

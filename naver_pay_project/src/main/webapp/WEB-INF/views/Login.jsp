@@ -68,19 +68,19 @@
 
 <%
 
-    if (session.getAttribute("login") != null) {
-        if (session.getAttribute("login") == Status.FAIL) {
+    if (session.getAttribute("Login") != null) {
+        if (session.getAttribute("Login") == Status.FAIL) {
 %>
 <script>alert("Login Fail!")</script>
 <%
 
-} else if (session.getAttribute("login") == Status.NULL) {
+} else if (session.getAttribute("Login") == Status.NULL) {
 
 %>
 <script>alert("Sign Up First.")</script>
 <%
         }
-        session.removeAttribute("login");
+        session.removeAttribute("Login");
     }
 %>
 
@@ -99,9 +99,7 @@
 %>
 
 <!-- -->
-<header>
-    <jsp:include page="layout/header.jsp"/>
-</header>
+
 
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
          pageEncoding="EUC-KR"%>
@@ -115,7 +113,7 @@
 
         function checkValue()
         {
-            inputForm = eval("document.loginInfo");
+            inputForm = eval("document.LoginInfo");
             if(!inputForm.userId.value)
             {
                 alert("아이디를 입력하세요");
@@ -139,7 +137,7 @@
 </head>
 <body>
 <div id="wrap">
-    <form name="loginInfo" method="post" action="login"
+    <form name="LoginInfo" method="post" action="Login"
           onsubmit="return checkValue()">
 
         <br>네이버 페이 프로젝트<br>
