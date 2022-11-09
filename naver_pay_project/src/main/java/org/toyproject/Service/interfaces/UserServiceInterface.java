@@ -10,7 +10,7 @@ public interface UserServiceInterface {
     boolean autoLogin(String autoLogin, String cookieId);
 
 
-    UserDTO login(String uId, String uPw);
+    UserDTO Login(String uId, String uPw);
 
     boolean signup(String uId, String uPw, String uEmail);
 

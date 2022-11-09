@@ -194,7 +194,7 @@ public class UserDAO {
         return result;
     }
 
-    public UserEntity select(String userId, String userPassword) { //여기?
+    public UserEntity select(String userId, String userPassword) {
         UserEntity user = null;
         try {
             conn = connectionPoolMgr.getConnection();
