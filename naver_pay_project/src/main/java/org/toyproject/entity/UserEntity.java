@@ -32,8 +32,6 @@ public class UserEntity {
         this.userPoint = userPoint;
     }
 
-<<<<<<< HEAD
-=======
     public UserEntity(String userId, String userPassword, String userAddress) {
         this.userId = userId;
         this.userPassword = userPassword;
@@ -49,8 +47,6 @@ public class UserEntity {
         this.userPoint = uPoint;
     }
 
-
->>>>>>> bda7fa04335a9f28205510d027e01a5d62152a29
     public UserDTO toUserDTO(){
         Long uSerialNum = Long.parseLong(userSerialNum);
         int uPoint = Integer.parseInt(userPoint);
