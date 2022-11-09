@@ -10,4 +10,9 @@ public class LoginController {
     public String Login(){
         return "Login";
     }
+
+    @RequestMapping(value = "/signup", method = RequestMethod.GET)
+    public String SignUP(){
+        return "SignUp";
+    }
 }

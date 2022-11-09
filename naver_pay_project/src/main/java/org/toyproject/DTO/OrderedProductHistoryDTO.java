@@ -1,7 +1,5 @@
 package org.toyproject.DTO;
 
-import org.toyproject.DAO.OrderedProductHistoryDAO;
-
 import java.util.Date;
 
 public class OrderedProductHistoryDTO {

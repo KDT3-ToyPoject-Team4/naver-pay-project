@@ -9,10 +9,28 @@
 <html>
 <head>
     <title>Login</title>
+    <link rel="stylesheet" href="../../resources/css/Login.css">
 </head>
 <body>
     <h1> 로그인 화면 입니다. </h1>
-    <button type="button" onclick="location.href='shopping/getShoppingList'">(날짜 입력 전)주문 목록 리스트로 이동하기</button>
-    <button type="button" onclick="location.href='shopping/getSearchDate'">(날짜 입력 후)주문 목록 리스트로 이동하기</button>
+    <div class="container">
+        <div class="section-1">
+            <button>로그아웃</button>
+            <button>내 정보</button>
+            <button>회원 탈퇴</button>
+        </div>
+        <div class="section-2">
+            <form action="login" method="post">
+                아이디 :
+                <input type="text" name="userId" placeholder="아이디 입력">
+                비밀번호 :
+                <input type="password" name="password" placeholder="비밀번호 입력">
+                <button type="submit">로그인</button>
+            </form>
+        </div>
+        <div class="section-3">
+            <button type="button" onclick="location.href='shoppingList'">주문 목록 리스트로 이동하기</button>
+        </div>
+    </div>
 </body>
 </html>

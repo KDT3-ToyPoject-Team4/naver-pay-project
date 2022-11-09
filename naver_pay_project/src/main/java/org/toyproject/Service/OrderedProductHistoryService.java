@@ -4,30 +4,50 @@ import org.toyproject.DAO.OrderedProductHistoryDAO;
 import org.toyproject.DTO.OrderedProductHistoryDTO;
 import org.toyproject.Entity.OrderedProductHistoryEntity;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class OrderedProductHistoryService {
 
+    private static OrderedProductHistoryService orderedProductHistoryService = null;
 
+
+    public OrderedProductHistoryService(){}
+
+    public static OrderedProductHistoryService getInstance(){
+        if (orderedProductHistoryService ==null){
+            orderedProductHistoryService =new OrderedProductHistoryService();
+        }
+        return orderedProductHistoryService;
+    }
 
 
     /*Entity를 DTO에 그대로 넣는다. (추가로 작업할게 없다)*/
-    public OrderedProductHistoryDTO orderedProductHistory (String userId){
-        OrderedProductHistoryDAO theDAO=OrderedProductHistoryDAO.getInstance();
-        OrderedProductHistoryDTO theDTO=OrderedProductHistoryDTO.getInstance();
+    public List<OrderedProductHistoryDTO> orderedProductHistory (String userId){
+        OrderedProductHistoryDAO theDAO = OrderedProductHistoryDAO.getInstance();
+        OrderedProductHistoryDTO theDTO = OrderedProductHistoryDTO.getInstance();
+        List<OrderedProductHistoryDTO> OrderedProductHistoryDTOs = new ArrayList<>();
+
         if(theDAO.getOrderedProductHistoryEntityWithUserId(userId)!=null){
-            OrderedProductHistoryEntity theEntity=theDAO.getOrderedProductHistoryEntityWithUserId(userId);
-            /*User_info*/
-            theDTO.setUserId(theEntity.getUserId());
-            theDTO.setUserPoint(theEntity.getUserPoint());
-            /*Product*/
-            theDTO.setProductName(theEntity.getProductName());
-            theDTO.setProductPrice(theEntity.getProductPrice());
-            /*Company*/
-            theDTO.setCompanyName(theEntity.getCompanyName());
-            theDTO.setCompany_tel(theEntity.getCompany_tel());
-            /*Order_info*/
-            theDTO.setOrderId(theEntity.getOrderId());
-            theDTO.setOrderDate(theEntity.getOrderDate());
-            return theDTO;
+            for (OrderedProductHistoryEntity dao : theDAO.getOrderedProductHistoryEntityWithUserId(userId)){
+
+                /*User_info*/
+                theDTO.setUserId(dao.getUserId());
+                theDTO.setUserPoint(dao.getUserPoint());
+                /*Product*/
+                theDTO.setProductName(dao.getProductName());
+                theDTO.setProductPrice(dao.getProductPrice());
+                /*Company*/
+                theDTO.setCompanyName(dao.getCompanyName());
+                theDTO.setCompany_tel(dao.getCompany_tel());
+                /*Order_info*/
+                theDTO.setOrderId(dao.getOrderId());
+                theDTO.setOrderDate(dao.getOrderDate());
+
+                OrderedProductHistoryDTOs.add(theDTO);
+
+            }
+            return OrderedProductHistoryDTOs;
         }
         return null;
     }

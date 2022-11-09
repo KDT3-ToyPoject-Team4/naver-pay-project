@@ -2,14 +2,19 @@ package org.toyproject.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.toyproject.Service.OrderedProductHistoryService;
+
+import java.text.ParseException;
 
 @Controller
 public class ShoppingController {
-    @RequestMapping(value = "/shopping/getShoppingList", method = RequestMethod.GET)
-    public String Shopping(Model model){
-        model.addAttribute("shoppingList","날짜 입력 전 화면입니다.");
+    @RequestMapping(value = "/shoppingList")
+    public String Shopping(@RequestParam("Id") String userId, Model model) throws ParseException {
+        OrderedProductHistoryService theService = OrderedProductHistoryService.getInstance();
+        model.addAttribute("DtoList",theService.orderedProductHistory(userId));
         return "Shopping";
     }
 }
