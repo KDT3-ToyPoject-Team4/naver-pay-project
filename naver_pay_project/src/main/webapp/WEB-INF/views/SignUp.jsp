@@ -72,45 +72,7 @@
     <title>Register</title>
 </head>
 <body>
-<script>
-    // function formCheck(frm) {
-    //     var msg = '';
-    //
-    //     if (frm.id.value.length < 3) {
-    //         setMessage('id의 길이는 3이상이어야 합니다.', frm.id);
-    //         return false;
-    //     }
-    //
-    //     return true;
-    // }
 
-    <%--function setMessage(msg, element) {--%>
-    <%--    document.getElementById("msg").innerHTML = `<i class="fa fa-exclamation-circle"> ${'${msg}'}'</i>`;--%>
-
-    <%--    if (element) {--%>
-    <%--        element.select();--%>
-    <%--    }--%>
-    <%--}--%>
-        var userPassword = document.getElementById("userPassword")
-            , userPasswordCheck = document.getElementById("userPasswordCheck");
-
-        function validatePw(){
-         if(userPassword.value != userPasswordCheck.value){
-             userPasswordCheck.setCustomValidity("Passwords Don't Match");
-
-             // setMessage("비밀번호가 일치하지 않습니다.");
-         }else{
-             userPasswordCheck.setCustomValidity("회원가입 성공할때");
-             // setMessage("회원가입 성공");
-         }
-     }
-        userPassword.onchange = validatePw;
-        userPasswordCheck.onkeyup = validatePw;
-
-
-
-
-</script>
 <form action="/sign/success" method="POST">
 <%--<form action="/sign/success" method="POST" onsubmit="return setMessage(this)">--%>
     <%--  회원 가입 완료하면 입력한 정보 저장하고 메인 페이지로 이동하기--%>
@@ -139,5 +101,44 @@
 
 
 </form>
+<script>
+    // function formCheck(frm) {
+    //     var msg = '';
+    //
+    //     if (frm.id.value.length < 3) {
+    //         setMessage('id의 길이는 3이상이어야 합니다.', frm.id);
+    //         return false;
+    //     }
+    //
+    //     return true;
+    // }
+
+    <%--function setMessage(msg, element) {--%>
+    <%--    document.getElementById("msg").innerHTML = `<i class="fa fa-exclamation-circle"> ${'${msg}'}'</i>`;--%>
+
+    <%--    if (element) {--%>
+    <%--        element.select();--%>
+    <%--    }--%>
+    <%--}--%>
+    var userPassword = document.getElementById("userPassword")
+        , userPasswordCheck = document.getElementById("userPasswordCheck");
+
+    function validatePw(){
+        if(userPassword.value != userPasswordCheck.value){
+            userPasswordCheck.setCustomValidity("Passwords Don't Match");
+
+            // setMessage("비밀번호가 일치하지 않습니다.");
+        }else{
+            userPasswordCheck.setCustomValidity('');
+            // setMessage("회원가입 성공");
+        }
+    }
+    userPassword.onchange = validatePw;
+    userPasswordCheck.onkeyup = validatePw;
+
+
+
+
+</script>
 </body>
 </html>
