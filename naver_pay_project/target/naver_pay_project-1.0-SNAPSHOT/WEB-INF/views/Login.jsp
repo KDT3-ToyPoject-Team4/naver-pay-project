@@ -137,7 +137,7 @@
 </head>
 <body>
 <div id="wrap">
-    <form name="LoginInfo" method="post" action="Login"
+    <form name="LoginInfo" method="post" action="/Login"
           onsubmit="return checkValue()">
 
         <br>네이버 페이 프로젝트<br>
