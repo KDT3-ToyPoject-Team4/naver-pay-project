@@ -2,7 +2,7 @@
 <html>
 <head>
     <title>Main</title>
-    <link rel="stylesheet" href="../../resources/css/CrawlingLogin.css">
+    <link rel="stylesheet" href="css/CrawlingLogin.css">
 </head>
 <body>
     <div class="center">

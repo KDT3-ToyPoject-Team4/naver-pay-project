@@ -10,7 +10,7 @@
 <html>
 <head>
     <title>Shopping</title>
-    <link rel="stylesheet" href="../../resources/css/Shopping.css">
+    <link rel="stylesheet" href="css/Shopping.css">
 </head>
 <body>
     <h1>주문 목록 화면 입니다.</h1>

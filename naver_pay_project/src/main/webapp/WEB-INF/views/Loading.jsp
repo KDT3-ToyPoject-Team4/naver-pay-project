@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8">
     <title>Loading</title>
-    <link rel="stylesheet" type="text/css" href="../../resources/css/Loading.css">
+    <link rel="stylesheet" type="text/css" href="css/Loading.css">
   </head>
 <body>
   <div class = "loader">
