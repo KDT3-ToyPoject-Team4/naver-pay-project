@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.toyproject.DTO.WebCrawlingShoppingListDTO;
 import org.toyproject.entity.WebCrawlingShoppingListEntity;
-import org.toyproject.Service.WebCrawlingShoppingListService;
+import org.toyproject.service.WebCrawlingShoppingListService;
 
 import java.awt.*;
 import java.text.ParseException;

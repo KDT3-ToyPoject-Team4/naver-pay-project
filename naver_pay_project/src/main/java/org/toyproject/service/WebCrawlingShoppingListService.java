@@ -1,4 +1,4 @@
-package org.toyproject.Service;
+package org.toyproject.service;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.jsoup.Jsoup;

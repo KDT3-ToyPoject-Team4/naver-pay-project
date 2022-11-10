@@ -1,4 +1,4 @@
-package org.toyproject.Service;
+package org.toyproject.service;
 
 import org.springframework.stereotype.Service;
 import org.toyproject.DAO.UserDAO;
@@ -6,7 +6,7 @@ import org.toyproject.DTO.UserDTO;
 import org.toyproject.entity.UserEntity;
 
 import java.util.List;
-import org.toyproject.Service.interfaces.UserServiceInterface;
+import org.toyproject.service.interfaces.UserServiceInterface;
 @Service
 public class UserService implements UserServiceInterface {
     private UserDAO userDAO = UserDAO.getInstance();

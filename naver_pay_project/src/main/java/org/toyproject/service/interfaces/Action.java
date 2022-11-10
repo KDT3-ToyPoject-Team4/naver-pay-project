@@ -1,6 +1,6 @@
-package org.toyproject.Service.interfaces;
+package org.toyproject.service.interfaces;
 
-import org.toyproject.Service.ActionForward;
+import org.toyproject.service.ActionForward;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;

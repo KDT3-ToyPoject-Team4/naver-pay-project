@@ -1,4 +1,4 @@
-package org.toyproject.Service;
+package org.toyproject.service;
 
 import org.springframework.stereotype.Component;
 

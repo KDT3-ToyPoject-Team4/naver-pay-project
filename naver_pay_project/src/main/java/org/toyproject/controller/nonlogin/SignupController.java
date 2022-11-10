@@ -3,9 +3,9 @@ package org.toyproject.controller.nonlogin;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.toyproject.Service.CookieMgr;
-import org.toyproject.Service.SessionMgr;
-import org.toyproject.Service.UserService;
+import org.toyproject.service.CookieMgr;
+import org.toyproject.service.SessionMgr;
+import org.toyproject.service.UserService;
 
 
 import javax.servlet.http.HttpSession;

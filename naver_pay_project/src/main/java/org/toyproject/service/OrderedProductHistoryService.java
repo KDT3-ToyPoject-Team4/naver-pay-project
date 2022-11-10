@@ -1,4 +1,4 @@
-package org.toyproject.Service;
+package org.toyproject.service;
 
 import org.toyproject.DAO.OrderedProductHistoryDAO;
 import org.toyproject.DTO.OrderedProductHistoryDTO;

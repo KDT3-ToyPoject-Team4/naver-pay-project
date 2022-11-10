@@ -5,9 +5,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.toyproject.DTO.UserDTO;
-import org.toyproject.Service.CookieMgr;
-import org.toyproject.Service.SessionMgr;
-import org.toyproject.Service.UserService;
+import org.toyproject.service.CookieMgr;
+import org.toyproject.service.SessionMgr;
+import org.toyproject.service.UserService;
 import org.toyproject.controller.login.Status;
 
 import javax.servlet.http.HttpServletRequest;

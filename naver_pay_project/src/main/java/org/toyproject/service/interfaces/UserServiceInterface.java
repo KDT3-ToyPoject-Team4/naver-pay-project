@@ -1,4 +1,4 @@
-package org.toyproject.Service.interfaces;
+package org.toyproject.service.interfaces;
 
 import org.toyproject.DTO.UserDTO;
 

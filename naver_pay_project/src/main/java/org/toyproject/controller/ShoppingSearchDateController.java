@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.toyproject.DTO.OrderedProductHistoryDTO;
-import org.toyproject.Service.OrderedProductHistoryService;
+import org.toyproject.service.OrderedProductHistoryService;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;

@@ -6,8 +6,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
-import org.toyproject.Service.CookieMgr;
-import org.toyproject.Service.SessionMgr;
+import org.toyproject.service.CookieMgr;
+import org.toyproject.service.SessionMgr;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;

@@ -1,4 +1,4 @@
-package org.toyproject.Service;
+package org.toyproject.service;
 
 public class ActionForward {
     private String path;
