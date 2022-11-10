@@ -14,6 +14,7 @@
     <h1>주문 결과 상세 페이지 입니다.</h1>
     <div>
         <button>주문 결과 삭제</button>
+        <button a href = "./ShoppingList">쇼핑리스트</button>
     </div>
     <div>
         <div>

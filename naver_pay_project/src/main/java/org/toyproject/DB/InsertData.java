@@ -98,6 +98,19 @@ public class InsertData {
     }
 
     public void insertOrderData(){
+        try{
+            conn = connectionPoolMgr.getConnection();
+            String query = "INSERT INTO order_info (order_product_id,order_payment_id,user_serial_num,order_date,used_point,order_money,order_quantitiy)" +
+                    "values (?,?,?,?,?,?,?)";
+            pstmt = conn.prepareStatement(query);
 
+
+        }catch (SQLException e){
+
+        }catch (Exception e){
+
+        }finally {
+            connectionPoolMgr.freeConnection(conn,pstmt);
+        }
     }
 }

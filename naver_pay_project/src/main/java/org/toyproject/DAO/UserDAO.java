@@ -12,6 +12,7 @@ import java.util.LinkedList;
 import java.util.List;
 
 public class UserDAO {
+    private static UserDAO userDAO = null;
     private ConnectionPoolMgr connectionPoolMgr;
     private Connection conn = null;
     private PreparedStatement pstmt = null;
@@ -36,6 +37,13 @@ public class UserDAO {
         if(connectionPoolMgr == null){
             connectionPoolMgr = ConnectionPoolMgr.getInstance();
         }
+    }
+
+    public static UserDAO getInstance() {
+        if (userDAO == null) {
+            userDAO = new UserDAO();
+        }
+        return userDAO;
     }
 
     /**
@@ -74,16 +82,16 @@ public class UserDAO {
     /**
      * 아이디와 비밀번호 입력 받아서 유저 정보 찾기
      * @param userId : 사용자에게 입력 받은 아이디
-     * @param userPw : 사용자에게 입력 받은 비밀 번호
+     * @param userPassword : 사용자에게 입력 받은 비밀 번호
      * @return UserDTO 객체 반환, 없으면 null
      */
-    public UserDTO searchUser(String userId, String userPw){
+    public UserDTO searchUser(String userId, String userPassword){
         UserDTO userList = null;
         try{
             conn = connectionPoolMgr.getConnection();
             pstmt = conn.prepareStatement(USER_SELECT);
             pstmt.setString(1,userId);
-            pstmt.setString(2,userPw);
+            pstmt.setString(2,userPassword);
 
             rs = pstmt.executeQuery();
             while(rs.next()){
@@ -184,5 +192,35 @@ public class UserDAO {
             connectionPoolMgr.freeConnection(conn,pstmt);
         }
         return result;
+    }
+
+    public UserEntity select(String userId, String userPassword) {
+        UserEntity user = null;
+        try {
+            conn = connectionPoolMgr.getConnection();
+            pstmt = conn.prepareStatement(USER_SELECT);
+            pstmt.setString(1, userId);
+            pstmt.setString(2, userPassword);
+
+            rs = pstmt.executeQuery();
+
+            if (rs.next()) {
+                String uId = rs.getString("USER_ID");
+                String uPw = rs.getString("USER_PW");
+                String uName = rs.getString("USER_NAME");
+                String uPhoneNumber = rs.getString("USER_PH");
+                String uAddress = rs.getString("USER_ADDR");
+                String uPoint = rs.getString("USER_POINT");
+                user = new UserEntity(uId, uPw, uName, uPhoneNumber, uAddress, uPoint);
+            }
+
+        } catch (SQLException e){
+            e.printStackTrace();
+        }catch (Exception e){
+            e.printStackTrace();
+        }finally {
+            connectionPoolMgr.freeConnection(conn,pstmt, rs);
+        }
+        return user;
     }
 }

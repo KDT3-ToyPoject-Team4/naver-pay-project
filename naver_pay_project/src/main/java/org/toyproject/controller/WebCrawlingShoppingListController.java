@@ -5,7 +5,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.toyproject.DTO.WebCrawlingShoppingListDTO;
-import org.toyproject.Entity.WebCrawlingShoppingListEntity;
+import org.toyproject.entity.WebCrawlingShoppingListEntity;
 import org.toyproject.Service.WebCrawlingShoppingListService;
 
 import java.awt.*;
