@@ -195,5 +195,6 @@
     <orderEntry type="library" name="Maven: org.seleniumhq.selenium:selenium-manager:4.6.0" level="project" />
     <orderEntry type="library" name="Maven: org.seleniumhq.selenium:selenium-safari-driver:4.6.0" level="project" />
     <orderEntry type="library" name="Maven: org.seleniumhq.selenium:selenium-support:4.6.0" level="project" />
+    <orderEntry type="library" name="github.hazendaz.jsoup" level="project" />
   </component>
 </module>
