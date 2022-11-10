@@ -30,9 +30,7 @@ public class WebCrawlingShoppingListController {
         model.addAttribute("userId",userId);
         model.addAttribute("userPassword",userPassword);
         List<WebCrawlingShoppingListEntity> theEntityList = WebCrawlingShoppingListService.getShoppingListFromWeb(userId,userPassword);
-        WebCrawlingShoppingListDTO theDTO = WebCrawlingShoppingListDTO.getInstance();
-        theDTO.setEntitiesList(theEntityList);
-        model.addAttribute("dto",theDTO);
+        model.addAttribute("crawlingResult",theEntityList);
         return "CrawlingResult";
     }
 }

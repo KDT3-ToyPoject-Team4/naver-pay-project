@@ -1,0 +1,10 @@
+<component name="libraryTable">
+  <library name="ru.sbtqa.chromedriver.bin" type="repository">
+    <properties maven-id="ru.sbtqa:chromedriver-bin:106.0.5249.21" />
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/ru/sbtqa/chromedriver-bin/106.0.5249.21/chromedriver-bin-106.0.5249.21.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
