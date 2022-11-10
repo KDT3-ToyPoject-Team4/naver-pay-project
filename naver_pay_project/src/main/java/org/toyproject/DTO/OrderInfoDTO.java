@@ -8,7 +8,7 @@ public class OrderInfoDTO {
     private Long orderPayment;
     private String orderDate;
 
-    public OrderInfoDTO(Long orderId, Long orderProductId, Long orderCompanyId, Long userSerialNum, Long orderPayment, String orderDate) {
+    public OrderInfoDTO(Long orderId, Long orderProductId, Long orderCompanyId, Long userSerialNum, Long orderPayment) {
         this.orderId = orderId;
         this.orderProductId = orderProductId;
         this.orderCompanyId = orderCompanyId;
