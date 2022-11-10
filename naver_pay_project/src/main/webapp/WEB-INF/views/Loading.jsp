@@ -11,8 +11,8 @@
 
     <script>
       setTimeout(function() {
-        document.location = "crawling";
-      }, 5000); // <-- this is the delay in milliseconds
+        document.location = "crawlingResult";
+      }, 0); // <-- this is the delay in milliseconds
     </script>
 
   </div>

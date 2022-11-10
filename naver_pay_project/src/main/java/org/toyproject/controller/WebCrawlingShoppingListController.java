@@ -15,6 +15,8 @@ import java.util.List;
 @Controller
 public class WebCrawlingShoppingListController {
 
+    private String controllerUserId;
+    private String controllerUserPassword;
 
     @RequestMapping("/crawling")
     public String loading(){
@@ -22,15 +24,17 @@ public class WebCrawlingShoppingListController {
     }
 
     @RequestMapping("/loading")
-    public String crawlingLogin(){
+    public String crawlingLogin(@RequestParam String userId, String userPassword, Model model){
+        controllerUserId=userId;
+        controllerUserPassword=userPassword;
         return "Loading";
     }
     @RequestMapping("/crawlingResult")
-    public String naverLogin(@RequestParam String userId, String userPassword, Model model) throws ParseException, AWTException {
-        model.addAttribute("userId",userId);
-        model.addAttribute("userPassword",userPassword);
-        List<WebCrawlingShoppingListEntity> theEntityList = WebCrawlingShoppingListService.getShoppingListFromWeb(userId,userPassword);
+    public String naverLogin(Model model) throws ParseException, AWTException {
+        List<WebCrawlingShoppingListEntity> theEntityList = WebCrawlingShoppingListService.getShoppingListFromWeb(controllerUserId,controllerUserPassword);
         model.addAttribute("crawlingResult",theEntityList);
         return "CrawlingResult";
     }
+
+
 }

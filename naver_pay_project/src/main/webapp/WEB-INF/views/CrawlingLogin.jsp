@@ -7,7 +7,7 @@
 <body>
     <div class="center">
         <h1>네이버 로그인</h1>
-        <form action="crawlingResult" method="post">
+        <form action="loading" method="post">
             <div class="txt_field">
                 <input type="text" name="userId" required>
                 <span></span>
