@@ -1,9 +1,7 @@
 package org.toyproject.Service;
 
-import org.toyproject.DAO.ShoppingDetailDAO;
 import org.toyproject.Service.interfaces.Action;
 
-import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
