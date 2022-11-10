@@ -9,7 +9,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
-import org.toyproject.entity.WebCrawlingShoppingListEntity;
+import org.toyproject.Entity.WebCrawlingShoppingListEntity;
 
 import java.awt.*;
 import java.awt.datatransfer.Clipboard;
@@ -24,7 +24,7 @@ import java.util.List;
 public class WebCrawlingShoppingListService {
 
     public static void main(String[] args) throws AWTException, ParseException {
-        getShoppingListFromWeb("724thomas","");
+        getShoppingListFromWeb("724thomas","chl63B61op09#");
     }
     public static List<WebCrawlingShoppingListEntity> getShoppingListFromWeb(String naverId, String naverPassword) throws AWTException, ParseException {
         List<WebCrawlingShoppingListEntity> WebCrawlingShoppingListEntities = new ArrayList<>();

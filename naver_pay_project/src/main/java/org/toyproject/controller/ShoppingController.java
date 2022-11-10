@@ -14,6 +14,9 @@ public class ShoppingController {
     @RequestMapping(value = "/shoppingList")
     public String Shopping(@RequestParam("Id") String userId, Model model) throws ParseException {
         OrderedProductHistoryService theService = OrderedProductHistoryService.getInstance();
+        if (theService==null){
+            return "NoOrderHistory";
+        }
         model.addAttribute("DtoList",theService.orderedProductHistory(userId));
         return "Shopping";
     }
