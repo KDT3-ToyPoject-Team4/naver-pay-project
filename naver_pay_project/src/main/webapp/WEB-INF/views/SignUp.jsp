@@ -11,6 +11,7 @@
         * {
             box-sizing: border-box;
         }
+
         form {
             width: 400px;
             height: 600px;
@@ -24,6 +25,7 @@
             border: 1px solid rgb(89, 117, 196);
             border-radius: 10px;
         }
+
         .input-field {
             width: 300px;
             height: 40px;
@@ -32,11 +34,13 @@
             padding: 0 10px;
             margin-bottom: 10px;
         }
+
         label {
             width: 300px;
             height: 30px;
             margin-top: 4px;
         }
+
         button {
             background-color: rgb(89, 117, 196);
             color: white;
@@ -47,10 +51,12 @@
             border-radius: 5px;
             margin: 20px 0 30px 0;
         }
+
         .title {
             font-size: 50px;
             margin: 40px 0 30px 0;
         }
+
         .msg {
             height: 30px;
             text-align: center;
@@ -58,6 +64,7 @@
             color: red;
             margin-bottom: 20px;
         }
+
         .sns-chk {
             margin-top: 5px;
         }
@@ -65,7 +72,8 @@
     <title>Register</title>
 </head>
 <body>
-<form action="/sign/success" method="POST">
+
+<form action="/login" method="POST">
     <%--<form action="/sign/success" method="POST" onsubmit="return setMessage(this)">--%>
     <%--  회원 가입 완료하면 입력한 정보 저장하고 메인 페이지로 이동하기--%>
 
@@ -104,8 +112,10 @@
     //
     //     return true;
     // }
+
     <%--function setMessage(msg, element) {--%>
     <%--    document.getElementById("msg").innerHTML = `<i class="fa fa-exclamation-circle"> ${'${msg}'}'</i>`;--%>
+
     <%--    if (element) {--%>
     <%--        element.select();--%>
     <%--    }--%>
@@ -116,14 +126,19 @@
     function validatePw(){
         if(userPassword.value != userPasswordCheck.value){
             userPasswordCheck.setCustomValidity("Passwords Don't Match");
+
             // setMessage("비밀번호가 일치하지 않습니다.");
         }else{
-            userPasswordCheck.setCustomValidity("회원가입 성공할때");
+            userPasswordCheck.setCustomValidity('');
             // setMessage("회원가입 성공");
         }
     }
     userPassword.onchange = validatePw;
     userPasswordCheck.onkeyup = validatePw;
+
+
+
+
 </script>
 </body>
 </html>

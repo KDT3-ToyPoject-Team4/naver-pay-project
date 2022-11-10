@@ -20,8 +20,6 @@ import java.util.Vector;
 
 public class ConnectionPoolMgr {
     private Vector connections = new Vector(10);
-
-
     private String _driver = "org.h2.Driver",
             _url = "jdbc:h2:~/JDBC",
             _user = "sa2",

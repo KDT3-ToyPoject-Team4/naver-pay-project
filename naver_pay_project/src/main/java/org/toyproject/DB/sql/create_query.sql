@@ -35,8 +35,6 @@ CREATE TABLE payment(
                         payment_id LONG NOT NULL AUTO_INCREMENT,
                         payment_method varchar(255) NOT NULL,
                         user_serial_num LONG NOT NULL ,
-                        used_point int ,
-                        payment_money int NOT NULL ,
                         primary key (payment_id),
                         foreign key (user_serial_num) references user_info(user_serial_num)
 );
@@ -46,10 +44,13 @@ CREATE TABLE order_info(
                            order_product_id LONG,
                            order_payment_id LONG,
                            order_date DATE,
+                           used_point int,
+                           order_money int,
+                           user_serial_num LONG,
                            PRIMARY KEY (order_id),
                            FOREIGN KEY (order_product_id) REFERENCES product(product_id),
-                           FOREIGN KEY (order_payment_id) REFERENCES payment(payment_id)
+                           FOREIGN KEY (order_payment_id) REFERENCES payment(payment_id),
+                           FOREIGN KEY (user_serial_num) REFERENCES user_info(user_serial_num)
 );
 
 show tables;
-
