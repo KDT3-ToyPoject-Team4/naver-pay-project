@@ -25,7 +25,7 @@ public class WebCrawlingShoppingListService {
 
     public static void main(String[] args) throws AWTException, ParseException {
 //        WebDriverManager.chromedriver().setup();
-        getShoppingListFromWeb("724thomas","chl63B61op09!");
+        getShoppingListFromWeb("724thomas","");
     }
     public static List<WebCrawlingShoppingListEntity> getShoppingListFromWeb(String naverId, String naverPassword) throws AWTException, ParseException {
         List<WebCrawlingShoppingListEntity> WebCrawlingShoppingListEntities = new ArrayList<>();
