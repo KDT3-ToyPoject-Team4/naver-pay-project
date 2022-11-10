@@ -1,4 +1,4 @@
-package org.toyproject.entity;
+package org.toyproject.Entity;
 
 import java.util.Date;
 

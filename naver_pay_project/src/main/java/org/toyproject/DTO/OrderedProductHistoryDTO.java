@@ -4,8 +4,6 @@ import java.util.Date;
 
 public class OrderedProductHistoryDTO {
 
-    private static OrderedProductHistoryDTO orderedProductHistoryDTO = null;
-
     /*User_info*/
     private String userId;
     private int userPoint;
@@ -37,12 +35,7 @@ public class OrderedProductHistoryDTO {
         this.orderId = orderId;
         this.orderDate = orderDate;
     }
-    public static OrderedProductHistoryDTO getInstance(){
-        if (orderedProductHistoryDTO ==null){
-            orderedProductHistoryDTO =new OrderedProductHistoryDTO();
-        }
-        return orderedProductHistoryDTO;
-    }
+
     /*-------------------------Getter and Setter-------------------------*/
 
     public String getUserId() {
