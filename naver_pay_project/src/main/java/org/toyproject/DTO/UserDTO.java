@@ -112,6 +112,6 @@ public class UserDTO {
                 ", userPhoneNumber='" + userPhoneNumber + '\'' +
                 ", userAddress='" + userAddress + '\'' +
                 ", userPoint=" + userPoint +
-                '}';
+                '}' ;
     }
 }

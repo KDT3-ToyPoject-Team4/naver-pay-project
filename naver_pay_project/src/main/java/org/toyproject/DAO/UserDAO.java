@@ -177,7 +177,7 @@ public class UserDAO {
 
     /**
      * 사용자 이름 변경
-     * @param userDTO : 사용자 객체
+     * @param userDTO :  사용자 객체
      * @return 수정 완료한 데이터 개수 ( 1 : 정상, 그 외 나머지 : error)
      */
     public int updateUserName(UserDTO userDTO){

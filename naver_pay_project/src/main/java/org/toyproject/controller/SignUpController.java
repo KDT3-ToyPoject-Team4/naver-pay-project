@@ -47,6 +47,6 @@ public class SignUpController {
 //
 //    private boolean isValid(User user) {
 //        return true;
-//    }
+//     }
 
 }
