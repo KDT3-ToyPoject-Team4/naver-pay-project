@@ -1,4 +1,4 @@
-package org.toyproject.service;
+package org.toyproject.Service;
 
 import org.springframework.stereotype.Service;
 import org.toyproject.DAO.UserDAO;
@@ -6,7 +6,7 @@ import org.toyproject.DTO.UserDTO;
 import org.toyproject.entity.UserEntity;
 
 import java.util.List;
-import org.toyproject.service.interfaces.UserServiceInterface;
+import org.toyproject.Service.interfaces.UserServiceInterface;
 @Service
 public class UserService implements UserServiceInterface {
     private UserDAO userDAO = UserDAO.getInstance();
@@ -31,7 +31,22 @@ public class UserService implements UserServiceInterface {
         return false;
     }
 
+    public void signUp(UserDTO tempDTO){
+        UserDAO theDAO = new UserDAO();
 
+        String userId= tempDTO.getUserId();
+        String userPassword = tempDTO.getUserPassword();
+        String userName = tempDTO.getUserName();
+        String userPhoneNumber = tempDTO.getUserPhoneNumber();
+        String userAddress = tempDTO.getUserAddress();
+        System.out.println("Service" + userId);
+        UserEntity userEntity = new UserEntity(userId, userPassword, userName, userPhoneNumber, userAddress, "0");
+        if (userEntity != null) {
+            theDAO.insertUser(userEntity);
+        }
+
+    }
+    // 회원가입 입력값?
     @Override
     public UserDTO Login(String userId, String userPassword) {
         UserDTO userDTO = new UserDTO(userId, userPassword);
