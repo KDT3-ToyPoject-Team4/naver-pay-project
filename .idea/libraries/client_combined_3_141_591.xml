@@ -1,0 +1,14 @@
+<component name="libraryTable">
+  <library name="client-combined-3.141.591">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/Desktop/코딩/NaverProjectLibraries/selenium-java-3.141.59/client-combined-3.141.59.jar!/" />
+      <root url="jar://$USER_HOME$/Desktop/코딩/NaverProjectLibraries/selenium-java-3.141.59/libs/okio-1.14.0.jar!/" />
+      <root url="jar://$USER_HOME$/Desktop/코딩/NaverProjectLibraries/selenium-java-3.141.59/libs/okhttp-3.11.0.jar!/" />
+      <root url="jar://$USER_HOME$/Desktop/코딩/NaverProjectLibraries/selenium-java-3.141.59/libs/commons-exec-1.3.jar!/" />
+      <root url="jar://$USER_HOME$/Desktop/코딩/NaverProjectLibraries/selenium-java-3.141.59/libs/byte-buddy-1.8.15.jar!/" />
+      <root url="jar://$USER_HOME$/Desktop/코딩/NaverProjectLibraries/selenium-java-3.141.59/libs/guava-25.0-jre.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

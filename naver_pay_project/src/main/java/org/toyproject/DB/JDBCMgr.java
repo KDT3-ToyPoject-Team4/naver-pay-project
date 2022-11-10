@@ -9,7 +9,7 @@ public class JDBCMgr {
 
         try {
             DriverManager.registerDriver(new org.h2.Driver());
-            conn = DriverManager.getConnection("jdbc:h2:tcp://localhost/c:/Users/user/IdeaProjects/naver-pay-project/NaverUsers", "sa", "");
+            conn = DriverManager.getConnection("jdbc:h2:~/JDBC", "sa", "");
         } catch (SQLException e) {
             e.printStackTrace();
         }
