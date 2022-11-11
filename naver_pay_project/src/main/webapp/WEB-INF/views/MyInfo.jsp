@@ -11,6 +11,13 @@
     <title>user Info</title>
 </head>
 <body>
+
+<script>
+    setTimeout(function() {
+        document.location = "shoppingList";
+    },0); // <-- this is the delay in milliseconds
+</script>
+
 <h1>${user_name}님의 정보</h1>
 <p>아이디 : ${user.userId}</p>
 <p>비밀번호 : ${user.password}</p>

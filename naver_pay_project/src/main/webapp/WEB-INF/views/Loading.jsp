@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8">
     <title>Loading</title>
-    <link rel="stylesheet" type="text/css" href="../../resources/css/Loading.css">
+    <link rel="stylesheet" type="text/css" href="css/Loading.css">
   </head>
 <body>
   <div class = "loader">
@@ -11,8 +11,8 @@
 
     <script>
       setTimeout(function() {
-        document.location = "crawling";
-      }, 5000); // <-- this is the delay in milliseconds
+        document.location = "crawlingResult";
+      }, 0); // <-- this is the delay in milliseconds
     </script>
 
   </div>

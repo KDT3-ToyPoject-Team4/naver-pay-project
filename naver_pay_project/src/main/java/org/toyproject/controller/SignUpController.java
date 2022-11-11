@@ -5,7 +5,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.toyproject.DTO.UserDTO;
-import org.toyproject.Service.UserService;
+import org.toyproject.service.UserService;
 
 @Controller
 public class SignUpController {

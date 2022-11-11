@@ -1,7 +1,6 @@
 package org.toyproject.service;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
-import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.select.Elements;
 import org.openqa.selenium.By;
@@ -20,19 +19,21 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import org.jsoup.Jsoup;
 
 public class WebCrawlingShoppingListService {
 
     public static void main(String[] args) throws AWTException, ParseException {
-        getShoppingListFromWeb("724thomas","chl63B61op09#");
+//        WebDriverManager.chromedriver().setup();
+        getShoppingListFromWeb("724thomas","");
     }
     public static List<WebCrawlingShoppingListEntity> getShoppingListFromWeb(String naverId, String naverPassword) throws AWTException, ParseException {
         List<WebCrawlingShoppingListEntity> WebCrawlingShoppingListEntities = new ArrayList<>();
 
         WebDriver driver = null;
-        WebDriverManager.chromedriver().browserVersion("77.0.3865.40").setup();
+        WebDriverManager.chromedriver().setup();
         ChromeOptions options = new ChromeOptions();
-//        options.addArguments("start-maximized");
+//        options.addArguments("start-maximized");\
         options.addArguments("enable-automation");
         options.addArguments("--no-sandbox");
         options.addArguments("--disable-infobars");
@@ -162,37 +163,19 @@ public class WebCrawlingShoppingListService {
             }else{
                 usedPoint=Integer.parseInt(elements.text().split(" ")[elements.text().split(" ").length-2].replace(",",""));
             }
-            orderTotalMoney=Long.parseLong(elements.text().split(" ")[elements.text().split(" ").length-3].replace(",",""));
+//            orderTotalMoney=Long.parseLong(elements.text().split(" ")[elements.text().split(" ").length-3].replace(",",""));
 
-
+            elements=doc.select("li.final_payment_price");
+            orderTotalMoney=Long.parseLong(elements.text().split(" ")[1].replaceAll("[,원]",""));
             long productPrice = orderTotalMoney/ orderQuantity;
 
 
-            System.out.println("로그인아이디:"+userId);
-            System.out.println("비밀번호:"+userPw);
-            System.out.println("이름:"+userName);
-            System.out.println("연락처:"+userTel);
-            System.out.println("주소:"+userAddress);
-            System.out.println("포인트잔액:"+userPoint);
-
-            System.out.println("회사명:"+companyName);
-            System.out.println("회사번호:"+companyPhone);
-            System.out.println("회사URL:"+companyStore);
-            System.out.println("사업자번호:"+businessNumber);
-
-            System.out.println("제품명:"+productName);
-            System.out.println("제공포인트:"+supplyPoint);
-            System.out.println("제품가격:"+productPrice);
-
-            System.out.println("결제방법:"+paymentMethod);
-
-            System.out.println("주문번호:"+orderId);
-            System.out.println("주문 날짜:"+orderDate);
-            System.out.println("주문수량:"+orderQuantity);
-            System.out.println("사용포인트:"+usedPoint);
-            System.out.println("결제금액:"+orderMoney);
-            System.out.println("총 결제금액:"+orderTotalMoney);
-            System.out.println("------------------------------------------------");
+//            System.out.println("로그인아이디:"+userId+" 비밀번호:"+userPw+ "이름:"+userName+" 연락처:"+userTel+" 주소:"+userAddress+" 포인트잔액:"+userPoint);
+//            System.out.println("회사명:"+companyName+" 회사번호:"+companyPhone+" 회사URL:"+companyStore+" 사업자번호:"+businessNumber);
+//            System.out.println(" 제품명:"+productName+" 제공포인트:"+supplyPoint+" 제품가격:"+productPrice);
+//            System.out.println(" 결제방법:"+paymentMethod);
+//            System.out.println(" 주문번호:"+orderId+" 주문 날짜:"+orderDate+" 주문수량:"+orderQuantity+" 사용포인트:"+usedPoint+" 결제금액:"+orderMoney+" 총 결제금액:"+orderTotalMoney);
+//            System.out.println("------------------------------------------------");
 
             WebCrawlingShoppingListEntity temp = new WebCrawlingShoppingListEntity(
                     userId,userPw,userName,userTel,userAddress,userPoint,

@@ -69,7 +69,7 @@ public class LoginController {
 
         UserDTO userDTO = userService.Login(userId, userPassword);
         //Login.jsp에서 가져온 ID와 PW를 userService의 login 메소드를 사용해 userDTO에 정보를 담는다.
-        System.out.println(userDTO);
+
 
         if (userDTO != null) { //userDTO에 정보가 담겨 있을 때
 
