@@ -75,7 +75,6 @@
           <element id="library" level="project" name="Maven: com.sun.istack:istack-commons-runtime:4.1.1" />
           <element id="library" level="project" name="Maven: org.springframework:spring-oxm:5.3.23" />
           <element id="library" level="project" name="Maven: org.springframework:spring-jdbc:5.3.23" />
-          <element id="library" level="project" name="Maven: org.springframework:spring-tx:5.3.23" />
           <element id="library" level="project" name="Maven: org.apache.tomcat:tomcat-dbcp:9.0.68" />
           <element id="library" level="project" name="Maven: org.apache.tomcat:tomcat-juli:9.0.68" />
           <element id="library" level="project" name="Maven: org.apache.tomcat:tomcat-jdbc:9.0.68" />
@@ -150,6 +149,7 @@
           <element id="library" level="project" name="Maven: org.seleniumhq.selenium:selenium-manager:4.6.0" />
           <element id="library" level="project" name="Maven: org.seleniumhq.selenium:selenium-safari-driver:4.6.0" />
           <element id="library" level="project" name="Maven: org.seleniumhq.selenium:selenium-support:4.6.0" />
+          <element id="library" level="project" name="io.github.bonigarcia.webdrivermanager" />
         </element>
       </element>
       <element id="directory" name="META-INF">

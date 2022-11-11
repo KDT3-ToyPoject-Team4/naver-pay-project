@@ -31,9 +31,9 @@ public class LoginController {
     @GetMapping("/Login")
     public String LoginPage(HttpServletRequest request, HttpSession session) {
         String view = "Login";
-
         if (session.getAttribute("SESSION_ID") != null) { // 로그인이 되어있는 상태
-            return "redirect:/";
+            view = "MyInfo";
+            return view;
         }
 
         String autoLogin = cookieMgr.get(request, "AUTO_LOGIN");
@@ -62,11 +62,8 @@ public class LoginController {
         // 그래서 파라미터가 타입에 맞게 꼭 전달해야 되는 경우
         // 이런식으로 파라미터를 선언하게 되면 알아서 형변환이 되어 변수로 사용할 수 있고 편리하다.
 
-
-
         String view = LoginPage(request, session); // Login.jsp
         Status respStatus = Status.FAIL;
-
         UserDTO userDTO = userService.Login(userId, userPassword);
         //Login.jsp에서 가져온 ID와 PW를 userService의 login 메소드를 사용해 userDTO에 정보를 담는다.
 

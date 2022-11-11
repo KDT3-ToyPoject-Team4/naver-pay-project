@@ -15,7 +15,7 @@ import java.text.ParseException;
 @Controller
 public class ShoppingController {
 
-    @RequestMapping(value = "/shoppingList")
+    @RequestMapping(value = "shopping/getShoppingList")
     public String Shopping(HttpSession session, Model model) throws ParseException {
         SessionMgr sessionMgr=SessionMgr.getInstance();
         String userId = sessionMgr.get(session, "SESSION_ID");

@@ -1,7 +1,9 @@
 package org.toyproject.DAO;
 
-import org.toyproject.DB.JDBCMgr;
+import org.toyproject.DB.ConnectionPoolMgr;
+
 import org.toyproject.entity.OrderedProductHistoryEntity;
+
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -14,6 +16,7 @@ import java.util.List;
 public class OrderedProductHistoryDAO {
 
     private static OrderedProductHistoryDAO orderedProductHistoryDAO = null;
+    private ConnectionPoolMgr connectionPoolMgr;
     private Connection conn=null;
     private PreparedStatement stmt=null;
     private ResultSet rs=null;
@@ -43,7 +46,11 @@ public class OrderedProductHistoryDAO {
 
 
     //해당 기간사이 결제정보 가져오기
-    public OrderedProductHistoryDAO(){}
+    public OrderedProductHistoryDAO(){
+        if (connectionPoolMgr == null) {
+            connectionPoolMgr = ConnectionPoolMgr.getInstance();
+        }
+    }
     public static OrderedProductHistoryDAO getInstance(){
         if (orderedProductHistoryDAO ==null){
             orderedProductHistoryDAO =new OrderedProductHistoryDAO();
@@ -54,10 +61,10 @@ public class OrderedProductHistoryDAO {
     public List<OrderedProductHistoryEntity> getOrderedProductHistoryEntityWithUserId(String userId){
         List<OrderedProductHistoryEntity> OrderedProductHistoryEntities = new ArrayList<>();
         try{
-            conn= JDBCMgr.getConnection();
-            stmt=conn.prepareStatement(Payment_SELECT_ORDEREDPRODUCTHISTORY);
+            conn = connectionPoolMgr.getConnection();
+            stmt = conn.prepareStatement(Payment_SELECT_ORDEREDPRODUCTHISTORY);
             stmt.setString(1, userId);
-            rs=stmt.executeQuery();
+            rs = stmt.executeQuery();
             while (rs.next()){
                 /*User_info*/
 //                String userId="user_id";
@@ -85,8 +92,10 @@ public class OrderedProductHistoryDAO {
             return OrderedProductHistoryEntities;
         }catch (SQLException e){
             e.printStackTrace();
-        }finally{
-            JDBCMgr.close(stmt,conn);
+        }catch (Exception e){
+            e.printStackTrace();
+        } finally{
+            connectionPoolMgr.freeConnection(conn, stmt, rs);
         }
         return null;
     }
