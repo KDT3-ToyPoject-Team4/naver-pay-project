@@ -14,6 +14,9 @@
 </head>
 <body>
     <h1>주문 목록 화면 입니다.</h1>
+    <div>
+        <button type="button" onclick="location.href='/'">메인 화면으로 이동</button>
+    </div>
     ${shoppingList}
     <div class="container">
         <div class="section-1">

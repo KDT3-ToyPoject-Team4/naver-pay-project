@@ -14,7 +14,7 @@
 
 <script>
     setTimeout(function() {
-        document.location = "shoppingList";
+        document.location = "shopping/getShoppingList";
     },0); // <-- this is the delay in milliseconds
 </script>
 

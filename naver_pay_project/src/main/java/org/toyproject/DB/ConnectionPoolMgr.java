@@ -22,7 +22,7 @@ public class ConnectionPoolMgr {
     private Vector connections = new Vector(10);
     private String _driver = "org.h2.Driver",
             _url = "jdbc:h2:~/JDBC",
-            _user = "sa",
+            _user = "sa2",
             _password = "";
     private boolean _traceOn = false;
     private boolean initialized = false;
@@ -200,6 +200,7 @@ public class ConnectionPoolMgr {
             if (c == co.connection) {
                 try {
                     c.close();
+                    System.out.println("connection close");
                     connections.removeElementAt(i);
                     trace("Removed " + c.toString());
                 } catch (Exception e) {
