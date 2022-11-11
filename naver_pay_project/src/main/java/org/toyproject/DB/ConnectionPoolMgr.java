@@ -21,7 +21,7 @@ import java.util.Vector;
 public class ConnectionPoolMgr {
     private Vector connections = new Vector(10);
     private String _driver = "org.h2.Driver",
-            _url = "jdbc:h2:~/JDBC",
+            _url = "jdbc:h2:tcp://localhost/~/JDBC",
             _user = "sa2",
             _password = "";
     private boolean _traceOn = false;
