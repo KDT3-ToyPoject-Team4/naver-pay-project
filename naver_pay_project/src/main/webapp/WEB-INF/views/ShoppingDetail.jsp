@@ -18,26 +18,26 @@
     </div>
     <div>
         <div>
-            <p>주문 일자 : ${orderDate}</p>
-            <p>주문 번호 : ${orderId}</p>
+            <p>주문 일자 : ${order.orderDate}</p>
+            <p>주문 번호 : ${order.orderId}</p>
         </div>
         <div>
-            <p>상품 금액 : ${productPirce}</p>
-            <p>상품 결제시 제공 포인트 : ${supplyPoint}</p>
-            <p>상품 판매 회사 : ${companyName}</p>
-            <p>상품 판매 회사 전화 번호 : ${companyTel}</p>
-            <p>상품 판매 회사 스토어 URL : ${companyStore}</p>
+            <p>상품 금액 : ${order.productPirce}</p>
+            <p>상품 결제시 제공 포인트 : ${order.supplyPoint}</p>
+            <p>상품 판매 회사 : ${order.companyName}</p>
+            <p>상품 판매 회사 전화 번호 : ${order.companyTel}</p>
+            <p>상품 판매 회사 스토어 URL : ${order.companyStore}</p>
         </div>
         <div>
-            <p>사용자가 결제한 결제 수단 : ${paymentMethod}</p>
-            <p>사용자가 사용한 포인트 : ${usedPoint}</p>
-            <p>사용자가 지불한 금액 : ${orderMoney}</p>
+            <p>사용자가 결제한 결제 수단 : ${order.paymentMethod}</p>
+            <p>사용자가 사용한 포인트 : ${order.usedPoint}</p>
+            <p>사용자가 지불한 금액 : ${order.orderMoney}</p>
         </div>
         <div>
             <p>배송지 정보</p>
-            <p>사용자 이름 : ${userName}</p>
-            <p>사용자 주소 : ${userAddr}</p>
-            <p>사용자 연락처 : ${userPh}</p>
+            <p>사용자 이름 : ${order.userName}</p>
+            <p>사용자 주소 : ${order.userAddr}</p>
+            <p>사용자 연락처 : ${order.userPh}</p>
         </div>
     </div>
 </body>
