@@ -1,14 +1,35 @@
 package org.toyproject.service;
 
 import org.toyproject.DAO.ShoppingDetailDAO;
-import org.toyproject.DTO.ShoppingDetailDTO;
+import org.toyproject.service.interfaces.Action;
 
-public class ShoppingService {
-    private static ShoppingDetailDAO shoppingDetailDAO;
-    public ShoppingDetailDTO showShoppingDetail(long orderId) {
-        ShoppingDetailDTO shoppingDetailDTO = shoppingDetailDAO.showShoppingDetail(orderId);
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
-        return shoppingDetailDTO;
+public class ShoppingService implements Action {
+
+
+    @Override
+    public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
+        System.out.println("Message : ShoppingService의 execute() 호출");
+        request.setCharacterEncoding("UTF-8");
+
+        HttpSession session = request.getSession();
+        String id = (String) session.getAttribute("id");
+        ActionForward forward = new ActionForward();
+        if (id == null) {
+            forward.setPath("./Longin");
+            forward.setRedirect(true);
+            return forward;
+        }
+        String orderId = request.getParameter("orderId");
+
+        ShoppingDetailDAO sdao = new ShoppingDetailDAO();
+        request.setAttribute("ShoppingDetailList", sdao.showShoppingDetail(Long.valueOf(orderId)));
+
+        forward.setPath("./ShoppingDetail.jsp");
+        forward.setRedirect(false);
+        return forward;
     }
-
 }
