@@ -34,6 +34,7 @@ public class ShoppingDetailDAO {
             "O.order_payment_id = Pay.payment_id and O.order_id = ? ";
 
     public ShoppingDetailDTO showShoppingDetail(Long orderId){
+        System.out.println("DAO run");
         ShoppingDetailDTO detailDTO = null;
         try{
             conn = connectionPoolMgr.getConnection();

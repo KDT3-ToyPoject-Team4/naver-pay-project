@@ -136,6 +136,22 @@ public class ShoppingDetailDTO {
         this.paymentMethod = paymentMethod;
     }
 
+    public int getProductPrice() {
+        return productPrice;
+    }
+
+    public void setProductPrice(int productPrice) {
+        this.productPrice = productPrice;
+    }
+
+    public int getSupplyPoint() {
+        return supplyPoint;
+    }
+
+    public void setSupplyPoint(int supplyPoint) {
+        this.supplyPoint = supplyPoint;
+    }
+
     @Override
     public String toString() {
         return "ShoppingDetailDTO{" +

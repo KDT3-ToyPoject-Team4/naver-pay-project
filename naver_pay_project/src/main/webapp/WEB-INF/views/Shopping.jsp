@@ -40,7 +40,7 @@
                     <p>회사번호 : ${dto.company_tel}</p>
                     <p>주문번호 : ${dto.orderId}</p>
                     <p>주문날짜 : ${dto.orderDate}</p>
-                    <p>해당 주문 결과 상세 페이지로 이동하기 : <button type="button" onclick="location.href='getShoppingDetailList'">이동</button></p>
+                    <p>해당 주문 결과 상세 페이지로 이동하기 : <button type="button" onclick="location.href='getShoppingDetailList/${dto.orderId}'">이동</button></p>
                 </c:forEach>
             </div>
         </div>
