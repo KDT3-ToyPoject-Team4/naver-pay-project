@@ -27,7 +27,7 @@ public class OrderedProductHistoryDAO {
             "    from user_info U, payment Pay, order_info O, product P, company C\n" +
             "    where U.user_serial_num = O.user_serial_num and O.order_product_id = P.product_id and\n" +
             "          P.company_id = C.company_id and O.order_payment_id = Pay.payment_id and\n" +
-            "          U.user_serial_num = Pay.user_serial_num and U.user_id = ?";
+            "          U.user_serial_num = Pay.user_serial_num and U.user_id = ? ORDER BY order_date DESC";
     /*private static final String Payment_SELECT_ORDEREDPRODUCTHISTORY =
             "SELECT A.user_id,\n" +
                     "       A.user_point,\n" +
