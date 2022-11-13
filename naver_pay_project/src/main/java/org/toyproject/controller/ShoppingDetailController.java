@@ -16,7 +16,6 @@ public class ShoppingDetailController {
     private ShoppingService shoppingService = new ShoppingService();
     @RequestMapping(value = "shopping/getShoppingDetailList/{orderId}", method = RequestMethod.GET)
     public String ShoppingDetail(Model model, @PathVariable("orderId") String orderId){
-        System.out.println("controller run");
         Long orderID = Long.parseLong(orderId);
         ShoppingDetailDTO shoppingDetailDTO = shoppingService.showShoppingDetail(orderID);
         System.out.println(shoppingDetailDTO.toString());

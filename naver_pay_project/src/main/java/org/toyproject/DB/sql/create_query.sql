@@ -47,6 +47,7 @@ CREATE TABLE order_info(
                            used_point int,
                            order_money int,
                            user_serial_num LONG,
+                           order_quantity int,
                            PRIMARY KEY (order_id),
                            FOREIGN KEY (order_product_id) REFERENCES product(product_id),
                            FOREIGN KEY (order_payment_id) REFERENCES payment(payment_id),

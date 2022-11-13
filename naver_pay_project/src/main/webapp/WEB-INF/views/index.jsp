@@ -8,9 +8,7 @@
     <%if (session.getAttribute("SESSION_ID") == null){%>
       <button type="button" onclick="location.href='Login'">로그인</button>
       <button type="button" onclick="location.href='SignUp'">회원가입</button>
-      <button type="button" onclick="location.href='crawling'">크롤링</button>
     <%}else{%>
-      <button type=""
       <button type="button" onclick="location.href='shopping/getShoppingList'">주문 목록 확인하기</button>
       <button type="button" onclick="location.href='logout'">로그아웃</button>
     <%}%>

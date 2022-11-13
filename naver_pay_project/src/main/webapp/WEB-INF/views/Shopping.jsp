@@ -29,7 +29,7 @@
                 <form action="getSearchDate">
                     <input type="date" name="startDate" required>
                     <input type="date" name="endDate" required>
-                    <button type="submit">검색</button>
+                    <button type="submit" onclick="location.href='getSearchDate'">검색</button>
                 </form>
             </div>
             <div class="cont-2">
