@@ -158,7 +158,7 @@
             </tr>
         </table>
         <br>
-
+        <button type="button" onclick="location.href='/'">뒤로가기</button>
         <input type="submit" value="로그인"/>
 
     </form>

@@ -46,19 +46,19 @@
     <ul class="header__nav">
         <!-- block 구조여서 수직적 중앙이 맞음 -->
         <li><a href="/">Home</a></li>
-        <li><a href="search">Search</a></li>
+        <li><a href="shopping/getShoppingList">Shopping</a></li>
     </ul>
 
     <ul class="header__icons">
 
         <%
             if (session.getAttribute("SESSION_ID") != null) { %>
-        <li><a href="private"><i class="fas fa-user"></i></a></li>
+        <li><a href="SignUp"><i class="fas fa-user"></i></a></li>
         <li><a href="logout"><i class="fas fa-toggle-on"></i></a></li>
 
         <%
         } else { %>
-        <li><a href="signup"><i class="fas fa-user-plus"></i></a></li>
+        <li><a href="SignUp"><i class="fas fa-user-plus"></i></a></li>
         <li><a href="login"><i class="fas fa-toggle-off"></i></a></li>
         <%
             }

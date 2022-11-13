@@ -32,7 +32,7 @@ public class LoginController {
     public String LoginPage(HttpServletRequest request, HttpSession session) {
         String view = "Login";
         if (session.getAttribute("SESSION_ID") != null) { // 로그인이 되어있는 상태
-            view = "MyInfo";
+            view = "redirect:/shopping/getShoppingList";
             return view;
         }
 
@@ -74,7 +74,7 @@ public class LoginController {
 
             model.addAttribute("userId", session.getAttribute("SESSION_ID"));
 
-            view = "MyInfo";
+            view = "redirect:/shopping/getShoppingList";
             respStatus = Status.SUCCESS;
         }
 
