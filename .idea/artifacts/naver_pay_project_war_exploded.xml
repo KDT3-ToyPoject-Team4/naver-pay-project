@@ -91,9 +91,6 @@
           <element id="library" level="project" name="Maven: com.google.auto.service:auto-service-annotations:1.0.1" />
           <element id="library" level="project" name="Maven: com.google.auto.service:auto-service:1.0.1" />
           <element id="library" level="project" name="Maven: com.google.auto:auto-common:1.2" />
-          <element id="library" level="project" name="Maven: com.google.guava:guava:31.1-jre" />
-          <element id="library" level="project" name="Maven: com.google.guava:failureaccess:1.0.1" />
-          <element id="library" level="project" name="Maven: com.google.guava:listenablefuture:9999.0-empty-to-avoid-conflict-with-guava" />
           <element id="library" level="project" name="Maven: com.google.code.findbugs:jsr305:3.0.2" />
           <element id="library" level="project" name="Maven: org.checkerframework:checker-qual:3.12.0" />
           <element id="library" level="project" name="Maven: com.google.errorprone:error_prone_annotations:2.11.0" />
@@ -150,6 +147,13 @@
           <element id="library" level="project" name="Maven: org.seleniumhq.selenium:selenium-safari-driver:4.6.0" />
           <element id="library" level="project" name="Maven: org.seleniumhq.selenium:selenium-support:4.6.0" />
           <element id="library" level="project" name="io.github.bonigarcia.webdrivermanager" />
+          <element id="library" level="module" name="google.guava" module-name="naver_pay_project" />
+          <element id="library" level="project" name="ru.sbtqa.chromedriver.bin" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-tx:5.3.23" />
+          <element id="library" level="project" name="Maven: io.netty:netty-transport-native-kqueue:4.1.84.Final" />
+          <element id="library" level="project" name="Maven: io.netty:netty-transport-native-epoll:4.1.84.Final" />
+          <element id="file-copy" path="$PROJECT_DIR$/naver_pay_project/lib/jsoup-1.15.3.jar" />
+          <element id="library" level="project" name="h2-2.1.214" />
         </element>
       </element>
       <element id="directory" name="META-INF">
