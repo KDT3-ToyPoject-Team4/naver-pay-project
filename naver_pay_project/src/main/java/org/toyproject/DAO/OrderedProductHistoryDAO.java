@@ -22,7 +22,7 @@ public class OrderedProductHistoryDAO {
     private ResultSet rs=null;
 
     //해당 과거제품주문 목록 가져오기  (OrderedProductHistoryEntity)
-    private static final String Payment_SELECT_ORDEREDPRODUCTHISTORY = "select U.user_id, U.user_point, O.order_id, O.order_date, P.product_name, P.product_price,\n" +
+    private static final String Payment_SELECT_ORDEREDPRODUCTHISTORY = "select U.user_name, U.user_id, U.user_point, O.order_id, O.order_date, P.product_name, P.product_price,\n" +
             "       C.company_name, C.company_tel\n" +
             "    from user_info U, payment Pay, order_info O, product P, company C\n" +
             "    where U.user_serial_num = O.user_serial_num and O.order_product_id = P.product_id and\n" +

@@ -6,6 +6,7 @@ public class OrderedProductHistoryDTO {
 
     /*User_info*/
     private String userId;
+    private String userName;
     private int userPoint;
 
     /*Product*/
@@ -25,8 +26,9 @@ public class OrderedProductHistoryDTO {
     public OrderedProductHistoryDTO(){}
 
     /*-------------------------Constructor-------------------------*/
-    public OrderedProductHistoryDTO(String userId, int userPoint, String productName, Long productPrice, String companyName, String company_tel, Long orderId, Date orderDate) {
+    public OrderedProductHistoryDTO(String userId, String userName, int userPoint, String productName, Long productPrice, String companyName, String company_tel, Long orderId, Date orderDate) {
         this.userId = userId;
+        this.userName = userName;
         this.userPoint = userPoint;
         this.productName = productName;
         this.productPrice = productPrice;
@@ -100,5 +102,13 @@ public class OrderedProductHistoryDTO {
 
     public void setOrderDate(Date orderDate) {
         this.orderDate = orderDate;
+    }
+
+    public String getUserName() {
+        return userName;
+    }
+
+    public void setUserName(String userName) {
+        this.userName = userName;
     }
 }

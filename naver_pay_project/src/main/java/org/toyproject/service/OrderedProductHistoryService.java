@@ -33,6 +33,7 @@ public class OrderedProductHistoryService {
 
                     /*User_info*/
                     theDTO.setUserId(entity.getUserId());
+                    theDTO.setUserName(entity.getUserName());
                     theDTO.setUserPoint(entity.getUserPoint());
                     /*Product*/
                     theDTO.setProductName(entity.getProductName());

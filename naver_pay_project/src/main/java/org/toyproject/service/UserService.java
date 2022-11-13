@@ -70,4 +70,9 @@ public class UserService implements UserServiceInterface {
         return false;
     }
 
+    public UserDTO showUserInfo(String userId){
+        UserDTO userDTO = userDAO.selectUserOne(userId);
+        return userDTO;
+    }
+
 }

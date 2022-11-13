@@ -6,6 +6,7 @@ public class OrderedProductHistoryEntity {
 
     /*User_info*/
     private String userId;
+    private String userName;
     private int userPoint;
 
     /*Product*/
@@ -66,5 +67,9 @@ public class OrderedProductHistoryEntity {
 
     public Date getOrderDate() {
         return orderDate;
+    }
+
+    public String getUserName(){
+        return userName;
     }
 }

@@ -46,6 +46,11 @@ public class UserDTO {
         this.userAddress = userAddress;
     }
 
+    public UserDTO(String userName, int userPoint){
+        this.userName = userName;
+        this.userPoint = userPoint;
+    }
+
     public UserEntity toEntity(){
         return new UserEntity(userSerialNum.toString(), userId, userPassword, userName, userPhoneNumber, userAddress, String.valueOf(userPoint));
     }

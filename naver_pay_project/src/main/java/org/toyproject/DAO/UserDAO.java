@@ -1,5 +1,6 @@
 package org.toyproject.DAO;
 
+import org.h2.engine.User;
 import org.toyproject.DB.ConnectionPoolMgr;
 import org.toyproject.DTO.UserDTO;
 import org.toyproject.entity.UserEntity;
@@ -22,6 +23,8 @@ public class UserDAO {
     private static final String USER_INSERT_ALL = "INSERT INTO user_info(user_id, user_pw, user_name, user_ph, user_addr, user_point) VALUES(?, ?, ?, ?, ?, ?)";
     //유저 필수 정보만 삽입
     private static final String USER_INSERT = "INSERT INTO user_info(user_id, user_pw, user_name) VALUES(?,?,?)";
+    //유저 기본 정보 들고오기
+    private static final String USER_SELECT_ONE = "SELECT user_name, user_point FROM user_info WHERE user_id = ?";
     //전체 데이터 조회 query (디버깅용)
     private static final String USER_SELECT_ALL = "SELECT * FROM user_info";
     //특정 유저 조회 (로그인 및 회원 가입 용)
@@ -219,6 +222,30 @@ public class UserDAO {
                 user = new UserEntity(uId, uPw, uName, uPhoneNumber, uAddress, uPoint);
             }
 
+        } catch (SQLException e){
+            e.printStackTrace();
+        }catch (Exception e){
+            e.printStackTrace();
+        }finally {
+            connectionPoolMgr.freeConnection(conn,pstmt, rs);
+        }
+        return user;
+    }
+
+    public UserDTO selectUserOne(String userId){
+        UserDTO user = null;
+        try {
+            conn = connectionPoolMgr.getConnection();
+            pstmt = conn.prepareStatement(USER_SELECT_ONE);
+            pstmt.setString(1, userId);
+
+            rs = pstmt.executeQuery();
+
+            if (rs.next()) {
+                String userName = rs.getString("USER_NAME");
+                int uPoint = rs.getInt("USER_POINT");
+                user = new UserDTO(userName, uPoint);
+            }
         } catch (SQLException e){
             e.printStackTrace();
         }catch (Exception e){
