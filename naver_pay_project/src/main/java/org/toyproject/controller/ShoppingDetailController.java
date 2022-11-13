@@ -18,11 +18,16 @@ public class ShoppingDetailController {
     public String ShoppingDetail(Model model, @PathVariable("orderId") String orderId){
         Long orderID = Long.parseLong(orderId);
         ShoppingDetailDTO shoppingDetailDTO = shoppingService.showShoppingDetail(orderID);
-        System.out.println(shoppingDetailDTO.toString());
         if(shoppingDetailDTO != null){
             model.addAttribute("order",shoppingDetailDTO);
         }
 
         return "ShoppingDetail";
+    }
+
+    @RequestMapping(value = "shopping/deleteShoppingDetail/{orderId}", method = RequestMethod.GET)
+    public String deleteShoppingDetail(@PathVariable("orderId") Long orderId){
+        shoppingService.deleteShoppingDetail(orderId);
+        return "redirect:/shopping/getShoppingList";
     }
 }

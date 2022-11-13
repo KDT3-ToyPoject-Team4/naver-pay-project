@@ -33,8 +33,9 @@ public class ShoppingDetailDAO {
             "O.order_product_id = P.product_id and P.company_id = C.company_id and "+
             "O.order_payment_id = Pay.payment_id and O.order_id = ? ";
 
+    public static final String SHOPPING_DELETE = "DELETE FROM order_info WHERE order_id = ?";
+
     public ShoppingDetailDTO showShoppingDetail(Long orderId){
-        System.out.println("DAO run");
         ShoppingDetailDTO detailDTO = null;
         try{
             conn = connectionPoolMgr.getConnection();
@@ -67,6 +68,21 @@ public class ShoppingDetailDAO {
             connectionPoolMgr.freeConnection(conn,pstmt);
         }
         return detailDTO;
+    }
+
+    public void deleteShoppingDetail(Long orderId){
+        try{
+            conn = connectionPoolMgr.getConnection();
+            pstmt = conn.prepareStatement(SHOPPING_DELETE);
+            pstmt.setLong(1, orderId);
+            pstmt.executeUpdate();
+        }catch (SQLException e){
+            e.printStackTrace();
+        }catch (Exception e){
+            e.printStackTrace();;
+        }finally {
+            connectionPoolMgr.freeConnection(conn,pstmt);
+        }
     }
 
 }

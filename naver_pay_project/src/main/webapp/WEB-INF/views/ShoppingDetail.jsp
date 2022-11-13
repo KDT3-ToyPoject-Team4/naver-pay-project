@@ -14,7 +14,7 @@
 <body>
     <h1>주문 결과 상세 페이지 입니다.</h1>
     <div class="section-1">
-        <button>주문 결과 삭제</button>
+        <button type="button" onclick="location.href='../deleteShoppingDetail/${order.orderId}'">주문 결과 삭제</button>
         <button type="button" onclick="location.href='../getShoppingList'">쇼핑리스트</button>
     </div>
     <div class="section-2">
