@@ -30,12 +30,13 @@ public class ShoppingSearchDateController {
         binder.registerCustomEditor(Date.class, editor);
     }
 
-    @RequestMapping(value = "/getSearchDate")
+    @RequestMapping(value = "shopping/getSearchDate")
     public String Shopping(HttpSession session,
                            @RequestParam("startDate") Date startDate,
                            @RequestParam("endDate") Date endDate, Model model) throws ParseException {
         SessionMgr sessionMgr=SessionMgr.getInstance();
         String userId = sessionMgr.get(session, "SESSION_ID");
+        System.out.println(userId);
         java.sql.Date sqlStartDate = new java.sql.Date(startDate.getTime());
         java.sql.Date sqlEndDate = new java.sql.Date(endDate.getTime());
         OrderedProductHistoryService theService = OrderedProductHistoryService.getInstance();
