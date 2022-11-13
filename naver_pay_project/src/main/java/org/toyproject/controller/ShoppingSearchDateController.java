@@ -9,7 +9,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.toyproject.DTO.OrderedProductHistoryDTO;
 import org.toyproject.service.OrderedProductHistoryService;
+import org.toyproject.service.SessionMgr;
 
+import javax.servlet.http.HttpSession;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -28,11 +30,13 @@ public class ShoppingSearchDateController {
         binder.registerCustomEditor(Date.class, editor);
     }
 
-    @RequestMapping(value = "/getSearchDate")
-    public String Shopping(
-                            @RequestParam("startDate") Date startDate,
+    @RequestMapping(value = "shopping/getSearchDate")
+    public String Shopping(HttpSession session,
+                           @RequestParam("startDate") Date startDate,
                            @RequestParam("endDate") Date endDate, Model model) throws ParseException {
-        String userId="a1234";
+        SessionMgr sessionMgr=SessionMgr.getInstance();
+        String userId = sessionMgr.get(session, "SESSION_ID");
+        System.out.println(userId);
         java.sql.Date sqlStartDate = new java.sql.Date(startDate.getTime());
         java.sql.Date sqlEndDate = new java.sql.Date(endDate.getTime());
         OrderedProductHistoryService theService = OrderedProductHistoryService.getInstance();
