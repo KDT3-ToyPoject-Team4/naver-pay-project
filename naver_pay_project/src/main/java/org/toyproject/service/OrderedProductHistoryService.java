@@ -62,6 +62,7 @@ public class OrderedProductHistoryService {
                 OrderedProductHistoryDTO theDTO = new OrderedProductHistoryDTO();
                 /*User_info*/
                 theDTO.setUserId(dao.getUserId());
+                theDTO.setUserName(dao.getUserName());
                 theDTO.setUserPoint(dao.getUserPoint());
                 /*Product*/
                 theDTO.setProductName(dao.getProductName());

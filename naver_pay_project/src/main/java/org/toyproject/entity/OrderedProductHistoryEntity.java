@@ -26,8 +26,9 @@ public class OrderedProductHistoryEntity {
     public OrderedProductHistoryEntity(){}
 
     /*-------------------------Constructor-------------------------*/
-    public OrderedProductHistoryEntity(String userId, int userPoint, String productName, Long productPrice, String companyName, String company_tel, Long orderId, Date orderDate) {
+    public OrderedProductHistoryEntity(String userId, String userName, int userPoint, String productName, Long productPrice, String companyName, String company_tel, Long orderId, Date orderDate) {
         this.userId = userId;
+        this.userName = userName;
         this.userPoint = userPoint;
         this.productName = productName;
         this.productPrice = productPrice;

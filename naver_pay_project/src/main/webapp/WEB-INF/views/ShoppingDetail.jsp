@@ -44,7 +44,7 @@
                 <p>배송지 정보</p>
             </div>
             <div>
-                <p>사용자 이름 : ${orderorder.userName}</p>
+                <p>사용자 이름 : ${order.userName}</p>
                 <p>사용자 주소 : ${order.userAddr}</p>
                 <p>사용자 연락처 : ${order.userTel}</p>
             </div>

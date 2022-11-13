@@ -75,6 +75,7 @@ public class OrderedProductHistoryDAO {
                 /*User_info*/
 //                String userId="user_id";
                 int userPoint = rs.getInt("user_point");
+                String userName = rs.getString("user_name");
 
                 /*Product*/
                 String productName = rs.getString("product_name");
@@ -91,7 +92,7 @@ public class OrderedProductHistoryDAO {
 
 
                 OrderedProductHistoryEntity theEntity = new OrderedProductHistoryEntity(
-                        userId, userPoint, productName,productPrice, companyName,company_tel, orderId, orderDate
+                        userId,userName, userPoint, productName,productPrice, companyName,company_tel, orderId, orderDate
                 );
                 OrderedProductHistoryEntities.add(theEntity);
             }
