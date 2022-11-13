@@ -1,13 +1,15 @@
-<header>
-  <jsp:include page="header.jsp"/>
-</header>
 
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+
+
 <html>
   <head>
     <title>Main</title>
   </head>
   <body>
+  <header>
+    <jsp:include page="header.jsp"/>
+  </header>
     <h1>메인 화면 입니다.</h1>
     <%if (session.getAttribute("SESSION_ID") == null){%>
       <button type="button" onclick="location.href='Login'">로그인</button>
