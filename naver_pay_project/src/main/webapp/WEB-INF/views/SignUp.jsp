@@ -96,11 +96,9 @@
     <label for="userAddress">주소</label>
     <input class="input-field" id="userAddress" type="text" name="userAddress" placeholder="당신 집 주소">
 
-    <button>회원 가입</button>
-    <button type="button" onclick="location.href='/'">취소</button>
-
-
+    <button type="submit">회원 가입</button>
 </form>
+    <button type="button" onclick="location.href='/'">취소</button>
 <script>
     // function formCheck(frm) {
     //     var msg = '';

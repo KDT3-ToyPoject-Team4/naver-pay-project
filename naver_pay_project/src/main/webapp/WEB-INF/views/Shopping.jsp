@@ -10,14 +10,13 @@
 <html>
 <head>
     <title>Shopping</title>
-    <link rel="stylesheet" href="css/Shopping.css">
+    <link rel="stylesheet" href="../../resources/css/Shopping.css">
 </head>
 <body>
     <h1>주문 목록 화면 입니다.</h1>
     <div>
         <button type="button" onclick="location.href='/'">메인 화면으로 이동</button>
     </div>
-    ${shoppingList}
     <div class="container">
         <div class="section-1">
             <p>사용자 이름 : ${DtoList.get(0).userId}</p>
@@ -32,17 +31,17 @@
                     <button type="submit" onclick="location.href='getSearchDate'">검색</button>
                 </form>
             </div>
-            <div class="cont-2">
                 <c:forEach items="${DtoList}"  var="dto" >
-                    <p>제품명 : ${dto.productName}</p>
-                    <p>제품금액 : ${dto.productPrice}</p>
-                    <p>회사명 : ${dto.companyName}</p>
-                    <p>회사번호 : ${dto.company_tel}</p>
-                    <p>주문번호 : ${dto.orderId}</p>
-                    <p>주문날짜 : ${dto.orderDate}</p>
+            <div class="cont-2">
                     <p>해당 주문 결과 상세 페이지로 이동하기 : <button type="button" onclick="location.href='getShoppingDetailList/${dto.orderId}'">이동</button></p>
-                </c:forEach>
+                    <p>주문 번호 : ${dto.orderId}</p>
+                    <p>주문 날짜 : ${dto.orderDate}</p>
+                    <p>제품 명 : ${dto.productName}</p>
+                    <p>제품 금액 : ${dto.productPrice}</p>
+                    <p>회사 명 : ${dto.companyName}</p>
+                    <p>회사 연락처 : ${dto.company_tel}</p>
             </div>
+                </c:forEach>
         </div>
     </div>
 </body>

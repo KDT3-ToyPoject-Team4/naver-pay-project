@@ -1,9 +1,9 @@
 <%@ page import="java.util.Arrays" %>
 <%@ page import="org.toyproject.controller.login.Status" %>
 <%
-    if (session.getAttribute("SESSION_ID") != null) {
-        response.sendRedirect("./index.jsp");
-    }
+//    if (session.getAttribute("SESSION_ID") != null) {
+//        response.sendRedirect("./index.jsp");
+//    }
 
 %>
 

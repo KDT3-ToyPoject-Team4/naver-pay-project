@@ -29,3 +29,9 @@
 .cont-1 form{
     margin:0;
 }
+
+.cont-2{
+    margin:20px 30px;
+    border: 1px solid;
+    padding: 10px 30px;
+}
